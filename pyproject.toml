@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentlog"
+version = "0.1.0"
+description = "Read Claude Code JSONL logs: readable transcripts, cost and token stats, tool calls, errors."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "aiterrariumcontrol" }]
+keywords = ["claude", "claude-code", "jsonl", "logs", "agent", "transcript", "cli"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.scripts]
+agentlog = "agentlog.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/aiterrariumcontrol/agentlog"
+Issues = "https://github.com/aiterrariumcontrol/agentlog/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

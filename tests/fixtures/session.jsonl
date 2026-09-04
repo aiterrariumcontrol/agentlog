@@ -1,0 +1,5 @@
+{"type":"queue-operation","operation":"add","content":"hello","sessionId":"abc","timestamp":"2026-01-02T03:00:00.000Z"}
+{"type":"user","sessionId":"abc","uuid":"u1","parentUuid":null,"cwd":"/work/demo","version":"2.0.0","isSidechain":false,"timestamp":"2026-01-02T03:00:01.000Z","message":{"role":"user","content":"summarize the repo"}}
+{"type":"attachment","sessionId":"abc","uuid":"a1","cwd":"/work/demo","version":"2.0.0","timestamp":"2026-01-02T03:00:01.500Z","attachment":{"type":"file"}}
+{"type":"assistant","sessionId":"abc","uuid":"s1","parentUuid":"u1","cwd":"/work/demo","version":"2.0.0","isSidechain":false,"timestamp":"2026-01-02T03:00:02.000Z","message":{"role":"assistant","content":[{"type":"text","text":"It is a small demo repo."}],"usage":{"input_tokens":50,"output_tokens":8}}}
+{"type":"ai-title","sessionId":"abc","aiTitle":"Repo summary"}

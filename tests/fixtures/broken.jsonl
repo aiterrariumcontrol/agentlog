@@ -1,0 +1,5 @@
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"before"}]}}
+{"type":"assistant","message":{"role":"assist
+[1,2,3]
+
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"after"}]}}
