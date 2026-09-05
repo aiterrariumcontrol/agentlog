@@ -7,7 +7,7 @@ from pathlib import Path
 from agentlog import parse_file, parse_lines
 from agentlog.cli import main
 from agentlog.render import Style, format_event, render
-from agentlog.schema import format_inventory, inventory
+from agentlog.schema import compare, format_drift, format_inventory, inventory
 from agentlog.stats import (
     aggregate,
     filter_summaries,
@@ -356,6 +356,18 @@ class TestSchema(unittest.TestCase):
         self.assertEqual(colour["examples"], [])
         self.assertEqual(self.field(group, "flag")["examples"], ["True"])
 
+    def test_numbers_and_timestamps_are_not_offered_as_enumerations(self):
+        report = self.report(STREAM)
+        group = self.group(report, "stream", "result/success")
+        for path in ("num_turns", "duration_ms", "total_cost_usd"):
+            self.assertEqual(self.field(group, path)["examples"], [], path)
+        events = [{"type": "x", "at": "2026-09-04T22:20:37.528Z", "day": "2026-09-04"}]
+        stamped = self.group(
+            inventory([parse_lines(json.dumps(e) for e in events)]), "unknown", "x"
+        )
+        self.assertEqual(self.field(stamped, "at")["examples"], [])
+        self.assertEqual(self.field(stamped, "day")["examples"], [])
+
     def test_malformed_records_are_counted_not_inventoried(self):
         report = self.report(BROKEN)
         shape = next(iter(report["shapes"].values()))
@@ -376,6 +388,96 @@ class TestSchema(unittest.TestCase):
         with redirect_stdout(buffer):
             code = main(["schema", str(FIXTURES / "nope.jsonl")])
         self.assertEqual(code, 2)
+
+
+class TestDrift(unittest.TestCase):
+    """`schema --baseline` is the mechanism that keeps docs/log-format.md honest."""
+
+    def inventory_of(self, records):
+        return inventory([parse_lines(json.dumps(record) for record in records)])
+
+    def test_identical_corpora_report_no_drift(self):
+        report = self.inventory_of([{"type": "x", "a": 1}])
+        drift = compare(report, report)
+        self.assertFalse(drift["drift"])
+        self.assertIn("no drift", format_drift(drift))
+
+    def test_a_new_field_is_reported_as_new(self):
+        before = self.inventory_of([{"type": "x", "a": 1}])
+        after = self.inventory_of([{"type": "x", "a": 1, "b": {"c": "yes"}}])
+        drift = compare(before, after)
+        self.assertTrue(drift["drift"])
+        paths = {change["path"] for change in drift["changes"] if change["kind"] == "field"}
+        self.assertEqual(paths, {"b", "b.c"})
+        self.assertTrue(all(change["signal"] == "new" for change in drift["changes"]))
+
+    def test_a_vanished_field_is_reported_as_absent_not_new(self):
+        before = self.inventory_of([{"type": "x", "a": 1, "b": 2}])
+        after = self.inventory_of([{"type": "x", "a": 1}])
+        drift = compare(before, after)
+        self.assertEqual(drift["new"], 0)
+        self.assertEqual(drift["absent"], 1)
+        self.assertEqual(drift["changes"][0]["path"], "b")
+
+    def test_a_widened_type_is_reported(self):
+        before = self.inventory_of([{"type": "x", "a": 1}])
+        after = self.inventory_of([{"type": "x", "a": 1}, {"type": "x", "a": None}])
+        drift = compare(before, after)
+        change = next(c for c in drift["changes"] if c["kind"] == "field-type")
+        self.assertEqual(change["detail"], "int -> int|null")
+
+    def test_a_new_enumeration_value_is_reported(self):
+        before = self.inventory_of([{"type": "x", "stop": "end_turn"}])
+        after = self.inventory_of(
+            [{"type": "x", "stop": "end_turn"}, {"type": "x", "stop": "max_tokens"}]
+        )
+        change = next(c for c in compare(before, after)["changes"] if c["kind"] == "value")
+        self.assertEqual(change["detail"], "max_tokens")
+
+    def test_new_record_types_and_shapes_are_reported(self):
+        before = self.inventory_of([{"type": "x"}])
+        after = inventory(
+            [
+                parse_lines([json.dumps({"type": "x"}), json.dumps({"type": "y"})]),
+                parse_file(STREAM),
+            ]
+        )
+        kinds = {(c["kind"], c["shape"]) for c in compare(before, after)["changes"]}
+        self.assertIn(("record-type", "unknown"), kinds)
+        self.assertIn(("shape", "stream"), kinds)
+
+    def test_stream_logs_report_the_version_from_their_init_header(self):
+        report = inventory([parse_file(STREAM)])
+        self.assertEqual(report["shapes"]["stream"]["versions"], ["2.0.0"])
+
+    def test_observed_claude_code_versions_are_recorded_and_diffed(self):
+        before = self.inventory_of([{"type": "x", "version": "2.1.261"}])
+        after = self.inventory_of([{"type": "x", "version": "2.2.0"}])
+        self.assertEqual(before["shapes"]["unknown"]["versions"], ["2.1.261"])
+        change = next(c for c in compare(before, after)["changes"] if c["kind"] == "version")
+        self.assertEqual(change["detail"], "2.2.0")
+
+    def test_cli_exits_1_on_drift_and_0_when_clean(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "baseline.json")
+            with open(path, "w", encoding="utf-8") as handle:
+                handle.write(run("schema", "--json", STREAM))
+            buffer = io.StringIO()
+            with redirect_stdout(buffer):
+                self.assertEqual(main(["schema", "--baseline", path, STREAM]), 0)
+            self.assertIn("no drift", buffer.getvalue())
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(main(["schema", "--baseline", path, str(FIXTURES)]), 1)
+
+    def test_an_empty_shape_does_not_look_like_a_vanished_format(self):
+        before = self.inventory_of([{"type": "x", "a": 1}])
+        after = inventory([parse_lines(json.dumps({"type": "x", "a": 1})), parse_lines([])])
+        self.assertFalse(compare(before, after)["drift"])
+        self.assertFalse(compare(after, before)["drift"])
+
+    def test_cli_rejects_a_baseline_that_is_not_json(self):
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["schema", "--baseline", BROKEN, STREAM]), 2)
 
 
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ inventory is worth.
 
 from __future__ import annotations
 
+import re
 from typing import Any, Iterable
 
 from .model import Transcript
@@ -57,6 +58,11 @@ _MAX_EXAMPLES = 5
 _EXAMPLE_CHARS = 32
 _MAX_DEPTH = 6
 
+# Timestamps and dates are measurements, not structure, and in a small corpus
+# there may be few enough of them to slip under _MAX_EXAMPLES and look like an
+# enumeration. Excluding them keeps a baseline stable across runs.
+_TIMESTAMPish = re.compile(r"^\d{4}-\d{2}-\d{2}([T ]|$)|^\d{2}:\d{2}:\d{2}")
+
 
 def _json_type(value: Any) -> str:
     if value is None:
@@ -87,6 +93,11 @@ def _example(value: Any) -> str | None:
     """Render ``value`` as an example, or ``None`` if it must not be shown."""
     if isinstance(value, (dict, list)) or value is None:
         return None
+    # A number is a quantity, and the declared type already says which kind.
+    # Listing token counts or costs as though they enumerated something would
+    # make the inventory churn on every corpus. Booleans do enumerate.
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return None
     if isinstance(value, str):
         if len(value) > _EXAMPLE_CHARS or value.strip() != value:
             return None
@@ -96,6 +107,8 @@ def _example(value: Any) -> str | None:
         # to document, and they say more about the log's author than about
         # the format.
         if value.startswith(("/", "~/", ".")) or "://" in value or "@" in value:
+            return None
+        if value.isdigit() or _TIMESTAMPish.match(value):
             return None
         return value or None
     return str(value)
@@ -120,8 +133,18 @@ class _Field:
         if self.varies or _is_opaque(path):
             self.varies = self.varies or _is_opaque(path)
             return
+        if isinstance(value, (dict, list)) or value is None:
+            return  # structure and absence; `types` already describes these
         rendered = _example(value)
-        if rendered is None or rendered in self._values:
+        if rendered is None:
+            # A value the filters refuse to print — a uuid, a path, a number,
+            # a timestamp. It is still evidence that this field is not an
+            # enumeration, and saying so keeps drift reports from treating a
+            # short id in some other corpus as a new enum member.
+            self._values.clear()
+            self.varies = True
+            return
+        if rendered in self._values:
             return
         if len(self._values) == _MAX_EXAMPLES:
             # More distinct values than an enumeration would have: this is
@@ -203,7 +226,8 @@ def inventory(transcripts: Iterable[Transcript]) -> dict[str, Any]:
     shapes: dict[str, dict[str, Any]] = {}
     for transcript in transcripts:
         bucket = shapes.setdefault(
-            transcript.shape, {"logs": 0, "records": 0, "malformed": 0, "groups": {}}
+            transcript.shape,
+            {"logs": 0, "records": 0, "malformed": 0, "groups": {}, "versions": set()},
         )
         bucket["logs"] += 1
         for event in transcript.events:
@@ -213,6 +237,12 @@ def inventory(transcripts: Iterable[Transcript]) -> dict[str, Any]:
             if not event.raw:
                 continue
             bucket["records"] += 1
+            # Session transcripts stamp `version` on every record; stream
+            # output carries `claude_code_version` on its system/init header.
+            for key in ("version", "claude_code_version"):
+                version = event.raw.get(key)
+                if isinstance(version, str) and version:
+                    bucket["versions"].add(version)
             name = _record_type(event.raw)
             group = bucket["groups"].setdefault(name, _Group(name))
             group.observe(event.raw)
@@ -223,6 +253,9 @@ def inventory(transcripts: Iterable[Transcript]) -> dict[str, Any]:
                 "logs": bucket["logs"],
                 "records": bucket["records"],
                 "malformed": bucket["malformed"],
+                # Which Claude Code releases this corpus was written by, so a
+                # stored baseline says what the format description is true of.
+                "versions": sorted(bucket["versions"]),
                 "record_types": [
                     {
                         "type": group.name,
@@ -274,4 +307,143 @@ def format_inventory(report: dict[str, Any]) -> str:
                 elif field["varies"]:
                     row += "  (varies)"
                 lines.append(row)
+    return "\n".join(lines)
+
+
+# --- drift detection -------------------------------------------------------
+#
+# The log formats are undocumented internals, so a description of them is only
+# true of the releases it was derived from. `compare` turns "keep the docs
+# current" into something runnable: store an inventory as a baseline, re-run it
+# against a fresh corpus, and get the list of differences.
+#
+# The two directions are not equally strong evidence. Something *new* — a field
+# path, a record type, a value in an enumeration — is proof the format grew,
+# because it was actually observed. Something *absent* may only mean this
+# corpus did not happen to exercise it. Both are reported; only the reader can
+# weigh them, so the distinction is carried in `signal` rather than hidden by
+# dropping one side.
+
+_NEW = "new"
+_ABSENT = "absent"
+
+
+def _index(shape: dict[str, Any]) -> dict[str, dict[str, dict[str, Any]]]:
+    """`{record type: {field path: field}}` for one shape of a report."""
+    return {
+        group["type"]: {field["path"]: field for field in group["fields"]}
+        for group in shape.get("record_types", [])
+    }
+
+
+def _change(signal: str, kind: str, shape: str, **rest: Any) -> dict[str, Any]:
+    return {"signal": signal, "kind": kind, "shape": shape, **rest}
+
+
+def _compare_fields(
+    shape: str, record_type: str, old: dict[str, Any], new: dict[str, Any]
+) -> list[dict[str, Any]]:
+    changes: list[dict[str, Any]] = []
+    for path in sorted(set(new) - set(old)):
+        changes.append(
+            _change(
+                _NEW, "field", shape, record_type=record_type, path=path,
+                detail="|".join(new[path]["types"]),
+            )
+        )
+    for path in sorted(set(old) - set(new)):
+        changes.append(_change(_ABSENT, "field", shape, record_type=record_type, path=path))
+    for path in sorted(set(old) & set(new)):
+        before, after = old[path], new[path]
+        if before["types"] != after["types"]:
+            changes.append(
+                _change(
+                    _NEW, "field-type", shape, record_type=record_type, path=path,
+                    detail=f"{'|'.join(before['types'])} -> {'|'.join(after['types'])}",
+                )
+            )
+        # A value appearing in an enumeration is the highest-signal change
+        # there is: a new subtype or stop reason is exactly what breaks a
+        # parser that switches on it. `varies` fields carry no examples, so
+        # only genuine enumerations are compared.
+        fresh = [v for v in after["examples"] if v not in before["examples"]]
+        if fresh and not after["varies"] and not before["varies"]:
+            changes.append(
+                _change(
+                    _NEW, "value", shape, record_type=record_type, path=path,
+                    detail=", ".join(sorted(fresh)),
+                )
+            )
+    return changes
+
+
+def compare(baseline: dict[str, Any], current: dict[str, Any]) -> dict[str, Any]:
+    """Differences between a stored inventory and a freshly built one.
+
+    Both arguments are `inventory()` reports; any other top-level keys are
+    ignored, so a baseline file may carry extra provenance of its own.
+    """
+    old_shapes = baseline.get("shapes", {})
+    new_shapes = current.get("shapes", {})
+    changes: list[dict[str, Any]] = []
+
+    for shape in sorted(set(new_shapes) - set(old_shapes)):
+        if new_shapes[shape].get("records"):
+            changes.append(_change(_NEW, "shape", shape))
+    for shape in sorted(set(old_shapes) - set(new_shapes)):
+        if old_shapes[shape].get("records"):
+            changes.append(_change(_ABSENT, "shape", shape))
+
+    for shape in sorted(set(old_shapes) & set(new_shapes)):
+        old, new = old_shapes[shape], new_shapes[shape]
+        if not old.get("records") or not new.get("records"):
+            # An empty log contributes a shape with nothing in it, which
+            # describes no format and would otherwise report every field as
+            # having vanished.
+            continue
+        for version in sorted(set(new.get("versions", [])) - set(old.get("versions", []))):
+            changes.append(_change(_NEW, "version", shape, detail=version))
+        old_types, new_types = _index(old), _index(new)
+        for record_type in sorted(set(new_types) - set(old_types)):
+            changes.append(_change(_NEW, "record-type", shape, record_type=record_type))
+        for record_type in sorted(set(old_types) - set(new_types)):
+            changes.append(_change(_ABSENT, "record-type", shape, record_type=record_type))
+        for record_type in sorted(set(old_types) & set(new_types)):
+            changes.extend(
+                _compare_fields(shape, record_type, old_types[record_type], new_types[record_type])
+            )
+
+    return {
+        "drift": bool(changes),
+        "new": sum(1 for change in changes if change["signal"] == _NEW),
+        "absent": sum(1 for change in changes if change["signal"] == _ABSENT),
+        "changes": changes,
+    }
+
+
+def format_drift(report: dict[str, Any]) -> str:
+    if not report["drift"]:
+        return "no drift: the corpus matches the baseline"
+
+    lines: list[str] = []
+    for signal, heading in (
+        (_NEW, "new since the baseline (observed, so the format changed)"),
+        (_ABSENT, "in the baseline but not in this corpus (may just be coverage)"),
+    ):
+        selected = [change for change in report["changes"] if change["signal"] == signal]
+        if not selected:
+            continue
+        if lines:
+            lines.append("")
+        lines.append(heading + ":")
+        for change in selected:
+            where = change["shape"]
+            if change.get("record_type"):
+                where += f" {change['record_type']}"
+            if change.get("path"):
+                where += f" {change['path']}"
+            row = f"  {change['kind']:<11} {where}"
+            if change.get("detail"):
+                row += f"  {change['detail']}"
+            lines.append(row)
     return "\n".join(lines)

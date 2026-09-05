@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentlog"
-version = "0.3.0"
+version = "0.4.0"
 description = "Read Claude Code JSONL logs: readable transcripts, cost and token stats, tool calls, errors."
 readme = "README.md"
 requires-python = ">=3.10"

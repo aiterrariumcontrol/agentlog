@@ -1,0 +1,6254 @@
+{
+  "shapes": {
+    "session": {
+      "logs": 15,
+      "records": 992,
+      "malformed": 0,
+      "versions": [
+        "2.1.261"
+      ],
+      "record_types": [
+        {
+          "type": "attachment",
+          "records": 303,
+          "fields": [
+            {
+              "path": "attachment",
+              "count": 303,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.addedLines",
+              "count": 24,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.addedLines[]",
+              "count": 24,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.addedNames",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.addedNames[]",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.addedTypes",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.addedTypes[]",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.autoModeConsentFlow",
+              "count": 6,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.bashFirst",
+              "count": 6,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.bashFirstSteer",
+              "count": 6,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "strict"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.bypass",
+              "count": 6,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.changes",
+              "count": 27,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.changes[]",
+              "count": 27,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.changes[].field",
+              "count": 27,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "workingDirectory"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.changes[].from",
+              "count": 27,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.commit",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.content",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.context",
+              "count": 12,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.context.userEmail",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.date",
+              "count": 14,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.failedMcpServers",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.filename",
+              "count": 8,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.identity",
+              "count": 12,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.identity.knowledgeCutoff",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "May 2026",
+                "January 2026"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.identity.marketingName",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "Opus 5",
+                "Sonnet 5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.identity.modelId",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "claude-opus-5",
+                "claude-sonnet-5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.isInitial",
+              "count": 24,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.names",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.names[]",
+              "count": 12,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.needsAuthMcpServers",
+              "count": 11,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.pendingMcpServers",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.pr",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.readdedNames",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.removedNames",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.removedTypes",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.sendUserFileHint",
+              "count": 1,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.showConcurrencyNote",
+              "count": 12,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.skillCount",
+              "count": 12,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.snapshot",
+              "count": 39,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.additionalWorkingDirectories",
+              "count": 39,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.isGitRepo",
+              "count": 39,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.isWorktree",
+              "count": 39,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.osVersion",
+              "count": 39,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "Linux 6.12.107+deb13-amd64"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.platform",
+              "count": 39,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "linux"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.scratchpadDirectory",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.snapshot.shell",
+              "count": 39,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "unknown",
+                "bash"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.snapshot.workingDirectory",
+              "count": 39,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.snippet",
+              "count": 8,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.steerOnly",
+              "count": 6,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.systemPrompt",
+              "count": 8,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.systemPrompt[]",
+              "count": 8,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.text",
+              "count": 179,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.tools",
+              "count": 4,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[]",
+              "count": 4,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].description",
+              "count": 4,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.tools[].name",
+              "count": 4,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.tools[].schema",
+              "count": 4,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.description",
+              "count": 4,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.tools[].schema.eager_input_streaming",
+              "count": 4,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.input_schema",
+              "count": 4,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.input_schema.$schema",
+              "count": 4,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.tools[].schema.input_schema.additionalProperties",
+              "count": 4,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.input_schema.properties",
+              "count": 4,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.input_schema.required",
+              "count": 4,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.input_schema.type",
+              "count": 4,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "object"
+              ],
+              "varies": false
+            },
+            {
+              "path": "attachment.tools[].schema.name",
+              "count": 4,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.type",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.url",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "attachment.wireHiddenNames",
+              "count": 12,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "cwd",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "entrypoint",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "sdk-cli",
+                "cli"
+              ],
+              "varies": false
+            },
+            {
+              "path": "gitBranch",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "HEAD"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isSidechain",
+              "count": 303,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "parentUuid",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "rendered",
+              "count": 295,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "rendered[]",
+              "count": 295,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "rendered[].content",
+              "count": 295,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "timestamp",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "attachment"
+              ],
+              "varies": false
+            },
+            {
+              "path": "userType",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "external"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "version",
+              "count": 303,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "2.1.261"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "assistant",
+          "records": 284,
+          "fields": [
+            {
+              "path": "apiBlockIndex",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "cwd",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "effort",
+              "count": 282,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "medium",
+                "high"
+              ],
+              "varies": false
+            },
+            {
+              "path": "entrypoint",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "sdk-cli",
+                "cli"
+              ],
+              "varies": false
+            },
+            {
+              "path": "error",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "authentication_failed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "gitBranch",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "HEAD"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isApiErrorMessage",
+              "count": 2,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isSidechain",
+              "count": 284,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message",
+              "count": 284,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.container",
+              "count": 2,
+              "always": false,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.content",
+              "count": 284,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[]",
+              "count": 284,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].caller",
+              "count": 155,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.content[].caller.type",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "direct"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].id",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input",
+              "count": 155,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.command",
+              "count": 146,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.content",
+              "count": 7,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.dangerouslyDisableSandbox",
+              "count": 1,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].input.description",
+              "count": 62,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.file_path",
+              "count": 9,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.new_string",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.old_string",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.replace_all",
+              "count": 2,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].name",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "Bash",
+                "Write",
+                "Edit"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].signature",
+              "count": 84,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].text",
+              "count": 45,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].thinking",
+              "count": 84,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].type",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "text",
+                "tool_use",
+                "thinking"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.context_management",
+              "count": 2,
+              "always": false,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.diagnostics",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.id",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.model",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "claude-opus-5",
+                "<synthetic>",
+                "claude-sonnet-5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.role",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "assistant"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.stop_details",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.stop_reason",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "tool_use",
+                "end_turn",
+                "stop_sequence"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.stop_sequence",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.type",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "message"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage",
+              "count": 284,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.cache_creation",
+              "count": 284,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.cache_creation.ephemeral_1h_input_tokens",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.cache_creation.ephemeral_5m_input_tokens",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.cache_creation_input_tokens",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.cache_read_input_tokens",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.inference_geo",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [
+                "not_available"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage.input_tokens",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations",
+              "count": 284,
+              "always": true,
+              "types": [
+                "list",
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.iterations[]",
+              "count": 282,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.iterations[].cache_creation",
+              "count": 282,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.iterations[].cache_creation.ephemeral_1h_input_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations[].cache_creation.ephemeral_5m_input_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations[].cache_creation_input_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations[].cache_read_input_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations[].input_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations[].output_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations[].type",
+              "count": 282,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "message"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage.output_tokens",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.output_tokens_details",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null",
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.output_tokens_details.thinking_tokens",
+              "count": 282,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.server_tool_use",
+              "count": 284,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.server_tool_use.web_fetch_requests",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.server_tool_use.web_search_requests",
+              "count": 284,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.service_tier",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [
+                "standard"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage.speed",
+              "count": 284,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [
+                "standard"
+              ],
+              "varies": false
+            },
+            {
+              "path": "parentUuid",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "requestId",
+              "count": 282,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "timestamp",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "assistant"
+              ],
+              "varies": false
+            },
+            {
+              "path": "userType",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "external"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "version",
+              "count": 284,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "2.1.261"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "user",
+          "records": 172,
+          "fields": [
+            {
+              "path": "cwd",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "entrypoint",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "sdk-cli",
+                "cli"
+              ],
+              "varies": false
+            },
+            {
+              "path": "gitBranch",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "HEAD"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isMeta",
+              "count": 1,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isSidechain",
+              "count": 172,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message",
+              "count": 172,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.content",
+              "count": 172,
+              "always": true,
+              "types": [
+                "list",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[]",
+              "count": 155,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].content",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].is_error",
+              "count": 146,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False",
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].tool_use_id",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].type",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "tool_result"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.role",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "user"
+              ],
+              "varies": false
+            },
+            {
+              "path": "origin",
+              "count": 1,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "origin.kind",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "human"
+              ],
+              "varies": false
+            },
+            {
+              "path": "parentUuid",
+              "count": 172,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "permissionMode",
+              "count": 14,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "bypassPermissions",
+                "default",
+                "auto"
+              ],
+              "varies": false
+            },
+            {
+              "path": "promptId",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "promptSource",
+              "count": 14,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "sdk",
+                "typed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "sessionId",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sourceToolAssistantUUID",
+              "count": 155,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "timestamp",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult",
+              "count": 155,
+              "always": false,
+              "types": [
+                "object",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.content",
+              "count": 7,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.filePath",
+              "count": 9,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.gitOperation",
+              "count": 3,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.gitOperation.push",
+              "count": 3,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.gitOperation.push.branch",
+              "count": 3,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "main"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.interrupted",
+              "count": 142,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.isImage",
+              "count": 142,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.newString",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.noOutputExpected",
+              "count": 142,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False",
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.oldString",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.originalFile",
+              "count": 9,
+              "always": false,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.replaceAll",
+              "count": 2,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.returnCodeInterpretation",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "No matches found"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.stderr",
+              "count": 142,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.stdout",
+              "count": 142,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.structuredPatch",
+              "count": 9,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.structuredPatch[]",
+              "count": 2,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.structuredPatch[].lines",
+              "count": 2,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.structuredPatch[].lines[]",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.structuredPatch[].newLines",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.structuredPatch[].newStart",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.structuredPatch[].oldLines",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.structuredPatch[].oldStart",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "toolUseResult.type",
+              "count": 7,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "create"
+              ],
+              "varies": false
+            },
+            {
+              "path": "toolUseResult.userModified",
+              "count": 9,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "type",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "user"
+              ],
+              "varies": false
+            },
+            {
+              "path": "userType",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "external"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "version",
+              "count": 172,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "2.1.261"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "atis-latch",
+          "records": 67,
+          "fields": [
+            {
+              "path": "atis",
+              "count": 67,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 67,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 67,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "atis-latch"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "ai-title",
+          "records": 59,
+          "fields": [
+            {
+              "path": "aiTitle",
+              "count": 59,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 59,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 59,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "ai-title"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "last-prompt",
+          "records": 59,
+          "fields": [
+            {
+              "path": "lastPrompt",
+              "count": 56,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "leafUuid",
+              "count": 59,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 59,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 59,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "last-prompt"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "queue-operation",
+          "records": 26,
+          "fields": [
+            {
+              "path": "content",
+              "count": 13,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "operation",
+              "count": 26,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "enqueue",
+                "dequeue"
+              ],
+              "varies": false
+            },
+            {
+              "path": "sessionId",
+              "count": 26,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "timestamp",
+              "count": 26,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 26,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "queue-operation"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "bridge-session",
+          "records": 5,
+          "fields": [
+            {
+              "path": "bridgeSessionId",
+              "count": 5,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "cse_01EogJJE8AC8gDB5rqvtThCN",
+                "cse_01CWdsgAygtrzNCtw8M4pPpb"
+              ],
+              "varies": false
+            },
+            {
+              "path": "lastSequenceNum",
+              "count": 5,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "ownerAccountUuid",
+              "count": 5,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "ownerOrganizationUuid",
+              "count": 5,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 5,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 5,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "bridge-session"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "mode",
+          "records": 4,
+          "fields": [
+            {
+              "path": "mode",
+              "count": 4,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "normal"
+              ],
+              "varies": false
+            },
+            {
+              "path": "sessionId",
+              "count": 4,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 4,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "mode"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "permission-mode",
+          "records": 4,
+          "fields": [
+            {
+              "path": "permissionMode",
+              "count": 4,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "auto"
+              ],
+              "varies": false
+            },
+            {
+              "path": "sessionId",
+              "count": 4,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 4,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "permission-mode"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "cost-state",
+          "records": 3,
+          "fields": [
+            {
+              "path": "hasUnknownModelCost",
+              "count": 3,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage",
+              "count": 3,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001",
+              "count": 2,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.costUSD",
+              "count": 2,
+              "always": false,
+              "types": [
+                "float"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.inputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.outputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.thinkingTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.webSearchRequests",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5",
+              "count": 2,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.cacheCreationInputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.cacheReadInputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.costUSD",
+              "count": 2,
+              "always": false,
+              "types": [
+                "float"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.inputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.outputTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.thinkingTokens",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-sonnet-5.webSearchRequests",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 3,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "startTime",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalAPIDuration",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalAPIDurationWithoutRetries",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalCostUSD",
+              "count": 3,
+              "always": true,
+              "types": [
+                "float",
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalDuration",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalLinesAdded",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalLinesRemoved",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "totalToolDuration",
+              "count": 3,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 3,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "cost-state"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "file-history-snapshot",
+          "records": 3,
+          "fields": [
+            {
+              "path": "isSnapshotUpdate",
+              "count": 3,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "messageId",
+              "count": 3,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "snapshot",
+              "count": 3,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "snapshot.messageId",
+              "count": 3,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "snapshot.timestamp",
+              "count": 3,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "snapshot.trackedFileBackups",
+              "count": 3,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "type",
+              "count": 3,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "file-history-snapshot"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "system/local_command",
+          "records": 2,
+          "fields": [
+            {
+              "path": "content",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "cwd",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "entrypoint",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "cli"
+              ],
+              "varies": false
+            },
+            {
+              "path": "gitBranch",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "HEAD"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isMeta",
+              "count": 2,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isSidechain",
+              "count": 2,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "level",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "info"
+              ],
+              "varies": false
+            },
+            {
+              "path": "parentUuid",
+              "count": 2,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "local_command"
+              ],
+              "varies": false
+            },
+            {
+              "path": "timestamp",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "userType",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "external"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "version",
+              "count": 2,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "2.1.261"
+              ],
+              "varies": false
+            }
+          ]
+        },
+        {
+          "type": "system/turn_duration",
+          "records": 1,
+          "fields": [
+            {
+              "path": "cwd",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "durationMs",
+              "count": 1,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "entrypoint",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "cli"
+              ],
+              "varies": false
+            },
+            {
+              "path": "gitBranch",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "HEAD"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isMeta",
+              "count": 1,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "isSidechain",
+              "count": 1,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "messageCount",
+              "count": 1,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "parentUuid",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "sessionId",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "turn_duration"
+              ],
+              "varies": false
+            },
+            {
+              "path": "timestamp",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "userType",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "external"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "version",
+              "count": 1,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "2.1.261"
+              ],
+              "varies": false
+            }
+          ]
+        }
+      ]
+    },
+    "stream": {
+      "logs": 7,
+      "records": 941,
+      "malformed": 0,
+      "versions": [
+        "2.1.261"
+      ],
+      "record_types": [
+        {
+          "type": "system/thinking_tokens",
+          "records": 370,
+          "fields": [
+            {
+              "path": "estimated_tokens",
+              "count": 370,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "estimated_tokens_delta",
+              "count": 370,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 370,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 370,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "thinking_tokens"
+              ],
+              "varies": false
+            },
+            {
+              "path": "type",
+              "count": 370,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 370,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "assistant",
+          "records": 278,
+          "fields": [
+            {
+              "path": "error",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "authentication_failed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "is_api_error_message",
+              "count": 1,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message",
+              "count": 278,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.container",
+              "count": 1,
+              "always": false,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.content",
+              "count": 278,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[]",
+              "count": 278,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].caller",
+              "count": 156,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.content[].caller.type",
+              "count": 156,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "direct"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].id",
+              "count": 156,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input",
+              "count": 156,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.command",
+              "count": 147,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.content",
+              "count": 7,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.dangerouslyDisableSandbox",
+              "count": 1,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].input.description",
+              "count": 63,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.file_path",
+              "count": 9,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.new_string",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.old_string",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].input.replace_all",
+              "count": 2,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].name",
+              "count": 156,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "Bash",
+                "Write",
+                "Edit"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].signature",
+              "count": 84,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].text",
+              "count": 38,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].thinking",
+              "count": 84,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].type",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "text",
+                "tool_use",
+                "thinking"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.context_management",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.diagnostics",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.id",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.model",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "<synthetic>",
+                "claude-opus-5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.role",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "assistant"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.stop_details",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.stop_reason",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [
+                "stop_sequence"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.stop_sequence",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.type",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "message"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage",
+              "count": 278,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.cache_creation",
+              "count": 278,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.cache_creation.ephemeral_1h_input_tokens",
+              "count": 278,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.cache_creation.ephemeral_5m_input_tokens",
+              "count": 278,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.cache_creation_input_tokens",
+              "count": 278,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.cache_read_input_tokens",
+              "count": 278,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.inference_geo",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [
+                "not_available"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage.input_tokens",
+              "count": 278,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.iterations",
+              "count": 1,
+              "always": false,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.output_tokens",
+              "count": 278,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.output_tokens_details",
+              "count": 1,
+              "always": false,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.server_tool_use",
+              "count": 1,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.usage.server_tool_use.web_fetch_requests",
+              "count": 1,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.server_tool_use.web_search_requests",
+              "count": 1,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.usage.service_tier",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [
+                "standard"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.usage.speed",
+              "count": 1,
+              "always": false,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "parent_tool_use_id",
+              "count": 278,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "request_id",
+              "count": 277,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "timestamp",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "assistant"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 278,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "user",
+          "records": 155,
+          "fields": [
+            {
+              "path": "message",
+              "count": 155,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "message.content",
+              "count": 155,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[]",
+              "count": 155,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].content",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].is_error",
+              "count": 146,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False",
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.content[].tool_use_id",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "message.content[].type",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "tool_result"
+              ],
+              "varies": false
+            },
+            {
+              "path": "message.role",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "user"
+              ],
+              "varies": false
+            },
+            {
+              "path": "parent_tool_use_id",
+              "count": 155,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "session_id",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "timestamp",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result",
+              "count": 155,
+              "always": true,
+              "types": [
+                "object",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.content",
+              "count": 7,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.filePath",
+              "count": 9,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.gitOperation",
+              "count": 3,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.gitOperation.push",
+              "count": 3,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.gitOperation.push.branch",
+              "count": 3,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "main"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.interrupted",
+              "count": 142,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.isImage",
+              "count": 142,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.newString",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.noOutputExpected",
+              "count": 142,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False",
+                "True"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.oldString",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.originalFile",
+              "count": 9,
+              "always": false,
+              "types": [
+                "null",
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.replaceAll",
+              "count": 2,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.returnCodeInterpretation",
+              "count": 1,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "No matches found"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.stderr",
+              "count": 142,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.stdout",
+              "count": 142,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.structuredPatch",
+              "count": 9,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.structuredPatch[]",
+              "count": 2,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.structuredPatch[].lines",
+              "count": 2,
+              "always": false,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.structuredPatch[].lines[]",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.structuredPatch[].newLines",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.structuredPatch[].newStart",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.structuredPatch[].oldLines",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.structuredPatch[].oldStart",
+              "count": 2,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_result.type",
+              "count": 7,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "create"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_result.userModified",
+              "count": 9,
+              "always": false,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "type",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "user"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 155,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "rate_limit_event",
+          "records": 79,
+          "fields": [
+            {
+              "path": "rate_limit_info",
+              "count": 79,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.isUsingOverage",
+              "count": 79,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.overageDisabledReason",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "org_level_disabled"
+              ],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.overageStatus",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "rejected"
+              ],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.rateLimitType",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "five_hour"
+              ],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.resetsAt",
+              "count": 79,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "rate_limit_info.status",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "allowed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows",
+              "count": 79,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows.five_hour",
+              "count": 79,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows.five_hour.resetsAt",
+              "count": 79,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows.five_hour.utilization",
+              "count": 79,
+              "always": true,
+              "types": [
+                "float",
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows.seven_day",
+              "count": 79,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows.seven_day.resetsAt",
+              "count": 79,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "rate_limit_info.unifiedWindows.seven_day.utilization",
+              "count": 79,
+              "always": true,
+              "types": [
+                "float",
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "rate_limit_event"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 79,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "system/task_notification",
+          "records": 18,
+          "fields": [
+            {
+              "path": "output_file",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "status",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "completed",
+                "failed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "subtype",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "task_notification"
+              ],
+              "varies": false
+            },
+            {
+              "path": "summary",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "task_id",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "tool_use_id",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "system/task_started",
+          "records": 18,
+          "fields": [
+            {
+              "path": "description",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "is_backgrounded",
+              "count": 18,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "session_id",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "task_started"
+              ],
+              "varies": false
+            },
+            {
+              "path": "task_id",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "task_type",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "local_bash"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tool_use_id",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 18,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "system/vcs_state_changed",
+          "records": 10,
+          "fields": [
+            {
+              "path": "branch",
+              "count": 2,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "main"
+              ],
+              "varies": false
+            },
+            {
+              "path": "cwd",
+              "count": 10,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "kind",
+              "count": 10,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "push"
+              ],
+              "varies": false
+            },
+            {
+              "path": "session_id",
+              "count": 10,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 10,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "vcs_state_changed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "type",
+              "count": 10,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 10,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "system/init",
+          "records": 7,
+          "fields": [
+            {
+              "path": "agents",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "agents[]",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "claude",
+                "Explore",
+                "general-purpose",
+                "Plan",
+                "statusline-setup"
+              ],
+              "varies": false
+            },
+            {
+              "path": "analytics_disabled",
+              "count": 7,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "apiKeySource",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "none"
+              ],
+              "varies": false
+            },
+            {
+              "path": "capabilities",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "capabilities[]",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "interrupt_receipt_v1",
+                "interrupt_cancel_queued_v1",
+                "msg_lifecycle_v1"
+              ],
+              "varies": false
+            },
+            {
+              "path": "claude_code_version",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "2.1.261"
+              ],
+              "varies": false
+            },
+            {
+              "path": "cwd",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "fast_mode_disabled_reason",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "sdk_opt_in_required"
+              ],
+              "varies": false
+            },
+            {
+              "path": "fast_mode_state",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "off"
+              ],
+              "varies": false
+            },
+            {
+              "path": "mcp_servers",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "memory_paths",
+              "count": 6,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "memory_paths.auto",
+              "count": 6,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "messaging_socket_path",
+              "count": 6,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "model",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "claude-opus-5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "output_style",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "default"
+              ],
+              "varies": false
+            },
+            {
+              "path": "permissionMode",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "bypassPermissions"
+              ],
+              "varies": false
+            },
+            {
+              "path": "plugins",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "product_feedback_disabled",
+              "count": 7,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "session_id",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "skills",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "skills[]",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "slash_commands",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "slash_commands[]",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "init"
+              ],
+              "varies": false
+            },
+            {
+              "path": "terminal_slash_commands",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "terminal_slash_commands[]",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "doctor",
+                "color",
+                "reload-plugins"
+              ],
+              "varies": false
+            },
+            {
+              "path": "tools",
+              "count": 7,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "tools[]",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "system"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 7,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        },
+        {
+          "type": "result/success",
+          "records": 6,
+          "fields": [
+            {
+              "path": "api_error_status",
+              "count": 6,
+              "always": true,
+              "types": [
+                "null"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "duration_api_ms",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "duration_ms",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "fast_mode_disabled_reason",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "sdk_opt_in_required"
+              ],
+              "varies": false
+            },
+            {
+              "path": "fast_mode_state",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "off"
+              ],
+              "varies": false
+            },
+            {
+              "path": "first_content_frame_ms",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "is_error",
+              "count": 6,
+              "always": true,
+              "types": [
+                "bool"
+              ],
+              "examples": [
+                "True",
+                "False"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001",
+              "count": 5,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.canonicalModel",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "claude-haiku-4-5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.contextWindow",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.costBasis",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "list"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.costUSD",
+              "count": 5,
+              "always": false,
+              "types": [
+                "float"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.inputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.maxOutputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.outputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.provider",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "firstParty"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.thinkingTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-haiku-4-5-20251001.webSearchRequests",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5",
+              "count": 5,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-opus-5.cacheCreationInputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.cacheReadInputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.canonicalModel",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "claude-opus-5"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-opus-5.contextWindow",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.costBasis",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "list"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-opus-5.costUSD",
+              "count": 5,
+              "always": false,
+              "types": [
+                "float"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.inputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.maxOutputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.outputTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.provider",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "firstParty"
+              ],
+              "varies": false
+            },
+            {
+              "path": "modelUsage.claude-opus-5.thinkingTokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "modelUsage.claude-opus-5.webSearchRequests",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "num_turns",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "permission_denials",
+              "count": 6,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "queued_turn_count",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "result",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "session_id",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "stop_reason",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "stop_sequence",
+                "end_turn"
+              ],
+              "varies": false
+            },
+            {
+              "path": "subagent_stats",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "subagent_stats.by_type",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "subagent_stats.completed",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.failed",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.killed",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "subagent_stats.killed.parent",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.killed.system",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.killed.user",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.max_depth",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.refused",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "subagent_stats.refused.budget",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.refused.concurrency_limit",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.refused.depth_limit",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.requested",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "subagent_stats.requested.background",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.requested.foreground",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.requested.unset",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.spawned",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.spawned_by_subagents",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subagent_stats.started_in_background",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "subtype",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "success"
+              ],
+              "varies": false
+            },
+            {
+              "path": "terminal_reason",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "api_error",
+                "completed"
+              ],
+              "varies": false
+            },
+            {
+              "path": "time_to_request_ms",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "total_cost_usd",
+              "count": 6,
+              "always": true,
+              "types": [
+                "float",
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "ttft_ms",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "ttft_stream_ms",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "type",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "result"
+              ],
+              "varies": false
+            },
+            {
+              "path": "usage",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.cache_creation",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.cache_creation.ephemeral_1h_input_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.cache_creation.ephemeral_5m_input_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.cache_creation_input_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.cache_read_input_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.inference_geo",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.input_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations",
+              "count": 6,
+              "always": true,
+              "types": [
+                "list"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.iterations[]",
+              "count": 5,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.iterations[].cache_creation",
+              "count": 5,
+              "always": false,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.iterations[].cache_creation.ephemeral_1h_input_tokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations[].cache_creation.ephemeral_5m_input_tokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations[].cache_creation_input_tokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations[].cache_read_input_tokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations[].input_tokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations[].output_tokens",
+              "count": 5,
+              "always": false,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.iterations[].type",
+              "count": 5,
+              "always": false,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "message"
+              ],
+              "varies": false
+            },
+            {
+              "path": "usage.output_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.output_tokens_details",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.output_tokens_details.thinking_tokens",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.server_tool_use",
+              "count": 6,
+              "always": true,
+              "types": [
+                "object"
+              ],
+              "examples": [],
+              "varies": false
+            },
+            {
+              "path": "usage.server_tool_use.web_fetch_requests",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.server_tool_use.web_search_requests",
+              "count": 6,
+              "always": true,
+              "types": [
+                "int"
+              ],
+              "examples": [],
+              "varies": true
+            },
+            {
+              "path": "usage.service_tier",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "standard"
+              ],
+              "varies": false
+            },
+            {
+              "path": "usage.speed",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [
+                "standard"
+              ],
+              "varies": false
+            },
+            {
+              "path": "uuid",
+              "count": 6,
+              "always": true,
+              "types": [
+                "str"
+              ],
+              "examples": [],
+              "varies": true
+            }
+          ]
+        }
+      ]
+    },
+    "unknown": {
+      "logs": 1,
+      "records": 0,
+      "malformed": 0,
+      "versions": [],
+      "record_types": []
+    }
+  }
+}

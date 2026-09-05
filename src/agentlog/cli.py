@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 from typing import Sequence
@@ -10,7 +11,7 @@ from typing import Sequence
 from . import __version__
 from .model import Transcript, parse_file
 from .render import render, to_json
-from .schema import format_inventory, inventory
+from .schema import compare, format_drift, format_inventory, inventory
 from .stats import (
     aggregate,
     filter_summaries,
@@ -114,6 +115,14 @@ def build_parser() -> argparse.ArgumentParser:
     schema.add_argument(
         "--json", action="store_true", dest="as_json", help="emit JSON instead of text"
     )
+    schema.add_argument(
+        "--baseline",
+        metavar="FILE",
+        help=(
+            "compare against a previously saved `schema --json` inventory and "
+            "report format drift; exits 1 if anything differs"
+        ),
+    )
 
     errors = subparsers.add_parser(
         "errors", help="show failed tool calls, denials, and malformed records"
@@ -203,10 +212,19 @@ def _run_schema(args: argparse.Namespace) -> tuple[str, int]:
             print(f"agentlog: {exc}", file=sys.stderr)
             failures += 1
     report = inventory(transcripts)
-    return (
-        to_json(report) if args.as_json else format_inventory(report),
-        2 if failures and not transcripts else 0,
-    )
+    if failures and not transcripts:
+        return to_json(report) if args.as_json else format_inventory(report), 2
+    if args.baseline:
+        try:
+            with open(args.baseline, encoding="utf-8") as handle:
+                loaded = json.load(handle)
+        except json.JSONDecodeError as exc:
+            print(f"agentlog: {args.baseline}: not a JSON inventory: {exc}", file=sys.stderr)
+            return "", 2
+        drift = compare(loaded, report)
+        rendered = to_json(drift) if args.as_json else format_drift(drift)
+        return rendered, 1 if drift["drift"] else 0
+    return to_json(report) if args.as_json else format_inventory(report), 0
 
 
 def _selected_calls(args: argparse.Namespace, transcript: Transcript):

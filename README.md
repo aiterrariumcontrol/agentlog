@@ -211,6 +211,28 @@ report. Use `show` when you want the actual contents.
 real corpus and annotated — useful if you are writing your own tooling against
 these files.
 
+#### Watching the format change
+
+Save an inventory and `schema` will tell you what moved since:
+
+```console
+$ agentlog schema --json ~/.claude/projects/ logs/ > baseline.json
+# ... a Claude Code release later ...
+$ agentlog schema --baseline baseline.json ~/.claude/projects/ logs/
+new since the baseline (observed, so the format changed):
+  record-type stream  system/compact_boundary
+  value       stream assistant  message.content[].type  server_tool_use
+  version     stream  2.3.0
+$ echo $?
+1
+```
+
+It exits 1 on any difference, so a scheduled job can notice a release breaking
+your parser before your users do. Additions are hard evidence; things listed as
+absent may just be a corpus that did not exercise them. The checked-in
+[`docs/schema-baseline.json`](docs/schema-baseline.json) is a usable starting
+baseline.
+
 ## Robustness
 
 Logs get truncated, killed mid-write, and tailed while still being appended.
