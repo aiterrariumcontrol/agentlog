@@ -14,7 +14,7 @@ your own logs before relying on any particular field.
 |---|---|
 | Generated | 2026-09-05 |
 | Claude Code version | 2.1.261 |
-| Corpus | 9 non-interactive stream logs + 17 session transcripts from a single machine |
+| Corpus | 11 non-interactive stream logs + 23 session transcripts from a single machine |
 | Command | `python3 scripts/regenerate-inventory.py ~/.claude/projects/ path/to/stream-logs/` |
 | Baseline | [`schema-baseline.json`](schema-baseline.json) — the same inventory as JSON, for `agentlog schema --baseline` |
 
@@ -54,47 +54,48 @@ of it. Expect the same the first time you exercise a feature listed above.
 ## Inventory
 
 ```
-shape: session  (17 logs, 1,426 records)
+shape: session  (23 logs, 2,017 records)
 
-  assistant  ×437
-    apiBlockIndex                                         int 435/437  (varies)
+  assistant  ×636
+    apiBlockIndex                                         int 633/636  (varies)
+    apiErrorStatus                                        int 1/636  (varies)
     cwd                                                   str  (varies)
-    effort                                                str 435/437  medium, high
+    effort                                                str 631/636  high, medium
     entrypoint                                            str  sdk-cli, cli
-    error                                                 str 2/437  authentication_failed
-    gitBranch                                             str  HEAD
-    isApiErrorMessage                                     bool 2/437  True
+    error                                                 str 3/636  authentication_failed, rate_limit
+    gitBranch                                             str  main, HEAD
+    isApiErrorMessage                                     bool 3/636  True
     isSidechain                                           bool  False
     message                                               object
-    message.container                                     null 2/437
+    message.container                                     null 3/636
     message.content                                       list  (varies)
     message.content[]                                     object  (varies)
-    message.content[].caller                              object 241/437
-    message.content[].caller.type                         str 241/437  direct
-    message.content[].id                                  str 241/437  (varies)
-    message.content[].input                               object 241/437  (varies)
-    message.content[].input.command                       str 230/437  (varies)
-    message.content[].input.content                       str 7/437  (varies)
-    message.content[].input.dangerouslyDisableSandbox     bool 1/437  True
-    message.content[].input.description                   str 146/437  (varies)
-    message.content[].input.file_path                     str 9/437  (varies)
-    message.content[].input.max_results                   int 1/437  (varies)
-    message.content[].input.new_string                    str 2/437  (varies)
-    message.content[].input.old_string                    str 2/437  (varies)
-    message.content[].input.query                         str 2/437  (varies)
-    message.content[].input.replace_all                   bool 2/437  False
-    message.content[].name                                str 241/437  Bash, ToolSearch, WebSearch, Write, Edit
-    message.content[].signature                           str 135/437  (varies)
-    message.content[].text                                str 61/437  (varies)
-    message.content[].thinking                            str 135/437  (varies)
-    message.content[].type                                str  text, tool_use, thinking
-    message.context_management                            null 2/437
+    message.content[].caller                              object 344/636
+    message.content[].caller.type                         str 344/636  direct
+    message.content[].id                                  str 344/636  (varies)
+    message.content[].input                               object 344/636  (varies)
+    message.content[].input.command                       str 333/636  (varies)
+    message.content[].input.content                       str 7/636  (varies)
+    message.content[].input.dangerouslyDisableSandbox     bool 1/636  True
+    message.content[].input.description                   str 174/636  (varies)
+    message.content[].input.file_path                     str 9/636  (varies)
+    message.content[].input.max_results                   int 1/636  (varies)
+    message.content[].input.new_string                    str 2/636  (varies)
+    message.content[].input.old_string                    str 2/636  (varies)
+    message.content[].input.query                         str 2/636  (varies)
+    message.content[].input.replace_all                   bool 2/636  False
+    message.content[].name                                str 344/636  Bash, ToolSearch, WebSearch, Write, Edit
+    message.content[].signature                           str 194/636  (varies)
+    message.content[].text                                str 98/636  (varies)
+    message.content[].thinking                            str 194/636  (varies)
+    message.content[].type                                str  text, thinking, tool_use
+    message.context_management                            null 3/636
     message.diagnostics                                   null
     message.id                                            str  (varies)
-    message.model                                         str  claude-opus-5, <synthetic>, claude-sonnet-5
+    message.model                                         str  claude-sonnet-5, claude-haiku-4-5-20251001, claude-opus-5, <synthetic>
     message.role                                          str  assistant
     message.stop_details                                  null
-    message.stop_reason                                   str  tool_use, end_turn, stop_sequence
+    message.stop_reason                                   str  end_turn, tool_use, stop_sequence
     message.stop_sequence                                 null|str  (varies)
     message.type                                          str  message
     message.usage                                         object
@@ -106,225 +107,238 @@ shape: session  (17 logs, 1,426 records)
     message.usage.inference_geo                           null|str  not_available
     message.usage.input_tokens                            int  (varies)
     message.usage.iterations                              list|null
-    message.usage.iterations[]                            object 435/437
-    message.usage.iterations[].cache_creation             object 435/437
-    message.usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 435/437  (varies)
-    message.usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 435/437  (varies)
-    message.usage.iterations[].cache_creation_input_tokens  int 435/437  (varies)
-    message.usage.iterations[].cache_read_input_tokens    int 435/437  (varies)
-    message.usage.iterations[].input_tokens               int 435/437  (varies)
-    message.usage.iterations[].output_tokens              int 435/437  (varies)
-    message.usage.iterations[].type                       str 435/437  message
+    message.usage.iterations[]                            object 633/636
+    message.usage.iterations[].cache_creation             object 633/636
+    message.usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 633/636  (varies)
+    message.usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 633/636  (varies)
+    message.usage.iterations[].cache_creation_input_tokens  int 633/636  (varies)
+    message.usage.iterations[].cache_read_input_tokens    int 633/636  (varies)
+    message.usage.iterations[].input_tokens               int 633/636  (varies)
+    message.usage.iterations[].output_tokens              int 633/636  (varies)
+    message.usage.iterations[].type                       str 633/636  message
     message.usage.output_tokens                           int  (varies)
     message.usage.output_tokens_details                   null|object
-    message.usage.output_tokens_details.thinking_tokens   int 435/437  (varies)
+    message.usage.output_tokens_details.thinking_tokens   int 633/636  (varies)
     message.usage.server_tool_use                         object
     message.usage.server_tool_use.web_fetch_requests      int  (varies)
     message.usage.server_tool_use.web_search_requests     int  (varies)
     message.usage.service_tier                            null|str  standard
     message.usage.speed                                   null|str  standard
     parentUuid                                            str  (varies)
-    requestId                                             str 435/437  (varies)
+    quotaLimits                                           object 1/636
+    quotaLimits.isUsingOverage                            bool 1/636  False
+    quotaLimits.overageDisabledReason                     str 1/636  org_level_disabled
+    quotaLimits.overageStatus                             str 1/636  rejected
+    quotaLimits.rateLimitType                             str 1/636  five_hour
+    quotaLimits.resetsAt                                  int 1/636  (varies)
+    quotaLimits.status                                    str 1/636  rejected
+    quotaLimits.unifiedRateLimitFallbackAvailable         bool 1/636  False
+    quotaLimits.upgradePaths                              list 1/636
+    quotaLimits.upgradePaths[]                            str 1/636  upgrade_plan
+    requestId                                             str 634/636  (varies)
     sessionId                                             str  (varies)
-    session_id                                            str 2/437  (varies)
+    session_id                                            str 2/636  (varies)
     timestamp                                             str  (varies)
     type                                                  str  assistant
     userType                                              str  external
     uuid                                                  str  (varies)
     version                                               str  2.1.261
 
-  attachment  ×424
+  attachment  ×597
     attachment                                            object
-    attachment.addedLines                                 list 28/424
-    attachment.addedLines[]                               str 28/424  (varies)
-    attachment.addedNames                                 list 14/424
-    attachment.addedNames[]                               str 14/424  (varies)
-    attachment.addedTypes                                 list 14/424
-    attachment.addedTypes[]                               str 14/424  (varies)
-    attachment.autoModeConsentFlow                        bool 8/424  False
-    attachment.bashFirst                                  bool 8/424  True
-    attachment.bashFirstSteer                             str 8/424  strict
-    attachment.bypass                                     bool 8/424  True
-    attachment.changes                                    list 39/424
-    attachment.changes[]                                  object 39/424
-    attachment.changes[].field                            str 39/424  workingDirectory
-    attachment.changes[].from                             str 39/424  (varies)
-    attachment.commit                                     str 1/424  (varies)
-    attachment.content                                    str 14/424  (varies)
-    attachment.context                                    object 14/424
-    attachment.context.userEmail                          str 14/424  (varies)
-    attachment.date                                       str 16/424  (varies)
-    attachment.entries                                    list 1/424
-    attachment.entries[]                                  object 1/424
-    attachment.entries[].defer_loading                    bool 1/424  True
-    attachment.entries[].description                      str 1/424  (varies)
-    attachment.entries[].eager_input_streaming            bool 1/424  True
-    attachment.entries[].input_schema                     object 1/424
-    attachment.entries[].input_schema.$schema             str 1/424  (varies)
-    attachment.entries[].input_schema.additionalProperties  bool 1/424  False
-    attachment.entries[].input_schema.properties          object 1/424
-    attachment.entries[].input_schema.properties.allowed_domains  object 1/424
-    attachment.entries[].input_schema.properties.blocked_domains  object 1/424
-    attachment.entries[].input_schema.properties.prompt   object 1/424  (varies)
-    attachment.entries[].input_schema.properties.query    object 1/424
-    attachment.entries[].input_schema.properties.url      object 1/424
-    attachment.entries[].input_schema.required            list 1/424
-    attachment.entries[].input_schema.required[]          str 1/424  url, prompt, query
-    attachment.entries[].input_schema.type                str 1/424  object
-    attachment.entries[].name                             str 1/424  WebFetch, WebSearch
-    attachment.failedMcpServers                           list 14/424
-    attachment.filename                                   str 12/424  (varies)
-    attachment.identity                                   object 14/424
-    attachment.identity.knowledgeCutoff                   str 14/424  May 2026, January 2026
-    attachment.identity.marketingName                     str 14/424  Opus 5, Sonnet 5
-    attachment.identity.modelId                           str 14/424  claude-opus-5, claude-sonnet-5
-    attachment.isInitial                                  bool 28/424  True
-    attachment.names                                      list 14/424
-    attachment.names[]                                    str 14/424  (varies)
-    attachment.needsAuthMcpServers                        list 13/424
-    attachment.pendingMcpServers                          list 14/424
-    attachment.pr                                         str 1/424  (varies)
-    attachment.readdedNames                               list 14/424
-    attachment.removedNames                               list 14/424
-    attachment.removedTypes                               list 14/424
-    attachment.sendUserFileHint                           bool 1/424  True
-    attachment.showConcurrencyNote                        bool 14/424  False
-    attachment.skillCount                                 int 14/424  (varies)
-    attachment.snapshot                                   object 53/424
-    attachment.snapshot.additionalWorkingDirectories      list 53/424
-    attachment.snapshot.isGitRepo                         bool 53/424  False
-    attachment.snapshot.isWorktree                        bool 53/424  False
-    attachment.snapshot.osVersion                         str 53/424  Linux 6.12.107+deb13-amd64
-    attachment.snapshot.platform                          str 53/424  linux
-    attachment.snapshot.scratchpadDirectory               str 1/424  (varies)
-    attachment.snapshot.shell                             str 53/424  unknown, bash
-    attachment.snapshot.workingDirectory                  str 53/424  (varies)
-    attachment.snippet                                    str 12/424  (varies)
-    attachment.steerOnly                                  bool 8/424  True
-    attachment.systemPrompt                               list 8/424
-    attachment.systemPrompt[]                             str 8/424  (varies)
-    attachment.text                                       str 269/424  (varies)
-    attachment.tools                                      list 4/424
-    attachment.tools[]                                    object 4/424
-    attachment.tools[].description                        str 4/424  (varies)
-    attachment.tools[].name                               str 4/424  (varies)
-    attachment.tools[].schema                             object 4/424
-    attachment.tools[].schema.description                 str 4/424  (varies)
-    attachment.tools[].schema.eager_input_streaming       bool 4/424  True
-    attachment.tools[].schema.input_schema                object 4/424
-    attachment.tools[].schema.input_schema.$schema        str 4/424  (varies)
-    attachment.tools[].schema.input_schema.additionalProperties  bool 4/424  False
-    attachment.tools[].schema.input_schema.properties     object 4/424
-    attachment.tools[].schema.input_schema.required       list 4/424
-    attachment.tools[].schema.input_schema.type           str 4/424  object
-    attachment.tools[].schema.name                        str 4/424  (varies)
+    attachment.addedLines                                 list 40/597
+    attachment.addedLines[]                               str 40/597  (varies)
+    attachment.addedNames                                 list 20/597
+    attachment.addedNames[]                               str 20/597  (varies)
+    attachment.addedTypes                                 list 20/597
+    attachment.addedTypes[]                               str 20/597  (varies)
+    attachment.autoModeConsentFlow                        bool 10/597  False
+    attachment.bashFirst                                  bool 10/597  True
+    attachment.bashFirstSteer                             str 10/597  strict
+    attachment.bypass                                     bool 10/597  True
+    attachment.changes                                    list 57/597
+    attachment.changes[]                                  object 57/597
+    attachment.changes[].field                            str 57/597  workingDirectory
+    attachment.changes[].from                             str 57/597  (varies)
+    attachment.commit                                     str 1/597  (varies)
+    attachment.content                                    str 20/597  (varies)
+    attachment.context                                    object 20/597
+    attachment.context.gitStatus                          str 1/597  (varies)
+    attachment.context.userEmail                          str 20/597  (varies)
+    attachment.date                                       str 22/597  (varies)
+    attachment.entries                                    list 1/597
+    attachment.entries[]                                  object 1/597
+    attachment.entries[].defer_loading                    bool 1/597  True
+    attachment.entries[].description                      str 1/597  (varies)
+    attachment.entries[].eager_input_streaming            bool 1/597  True
+    attachment.entries[].input_schema                     object 1/597
+    attachment.entries[].input_schema.$schema             str 1/597  (varies)
+    attachment.entries[].input_schema.additionalProperties  bool 1/597  False
+    attachment.entries[].input_schema.properties          object 1/597
+    attachment.entries[].input_schema.properties.allowed_domains  object 1/597
+    attachment.entries[].input_schema.properties.blocked_domains  object 1/597
+    attachment.entries[].input_schema.properties.prompt   object 1/597  (varies)
+    attachment.entries[].input_schema.properties.query    object 1/597
+    attachment.entries[].input_schema.properties.url      object 1/597
+    attachment.entries[].input_schema.required            list 1/597
+    attachment.entries[].input_schema.required[]          str 1/597  url, prompt, query
+    attachment.entries[].input_schema.type                str 1/597  object
+    attachment.entries[].name                             str 1/597  WebFetch, WebSearch
+    attachment.failedMcpServers                           list 20/597
+    attachment.filename                                   str 14/597  (varies)
+    attachment.identity                                   object 20/597
+    attachment.identity.knowledgeCutoff                   str 20/597  January 2026, February 2025, May 2026
+    attachment.identity.marketingName                     str 20/597  Sonnet 5, Haiku 4.5, Opus 5
+    attachment.identity.modelId                           str 20/597  claude-sonnet-5, claude-haiku-4-5-20251001, claude-opus-5
+    attachment.isInitial                                  bool 40/597  True
+    attachment.names                                      list 20/597
+    attachment.names[]                                    str 20/597  (varies)
+    attachment.needsAuthMcpServers                        list 19/597
+    attachment.pendingMcpServers                          list 20/597
+    attachment.pr                                         str 1/597  (varies)
+    attachment.readdedNames                               list 20/597
+    attachment.removedNames                               list 20/597
+    attachment.removedTypes                               list 20/597
+    attachment.sendUserFileHint                           bool 1/597  True
+    attachment.showConcurrencyNote                        bool 20/597  False
+    attachment.skillCount                                 int 20/597  (varies)
+    attachment.snapshot                                   object 77/597
+    attachment.snapshot.additionalWorkingDirectories      list 77/597
+    attachment.snapshot.isGitRepo                         bool 77/597  True, False
+    attachment.snapshot.isWorktree                        bool 77/597  False
+    attachment.snapshot.osVersion                         str 77/597  Linux 6.12.107+deb13-amd64
+    attachment.snapshot.platform                          str 77/597  linux
+    attachment.snapshot.scratchpadDirectory               str 1/597  (varies)
+    attachment.snapshot.shell                             str 77/597  bash, unknown
+    attachment.snapshot.workingDirectory                  str 77/597  (varies)
+    attachment.snippet                                    str 14/597  (varies)
+    attachment.steerOnly                                  bool 10/597  True
+    attachment.systemPrompt                               list 16/597
+    attachment.systemPrompt[]                             str 16/597  (varies)
+    attachment.text                                       str 376/597  (varies)
+    attachment.tools                                      list 8/597
+    attachment.tools[]                                    object 8/597
+    attachment.tools[].description                        str 8/597  (varies)
+    attachment.tools[].name                               str 8/597  (varies)
+    attachment.tools[].schema                             object 8/597
+    attachment.tools[].schema.description                 str 8/597  (varies)
+    attachment.tools[].schema.eager_input_streaming       bool 8/597  True
+    attachment.tools[].schema.input_schema                object 8/597
+    attachment.tools[].schema.input_schema.$schema        str 8/597  (varies)
+    attachment.tools[].schema.input_schema.additionalProperties  bool 8/597  False
+    attachment.tools[].schema.input_schema.properties     object 8/597
+    attachment.tools[].schema.input_schema.required       list 8/597
+    attachment.tools[].schema.input_schema.type           str 8/597  object
+    attachment.tools[].schema.name                        str 8/597  (varies)
     attachment.type                                       str  (varies)
-    attachment.url                                        str 1/424  (varies)
-    attachment.wireHiddenNames                            list 14/424
+    attachment.url                                        str 1/597  (varies)
+    attachment.wireHiddenNames                            list 20/597
     cwd                                                   str  (varies)
     entrypoint                                            str  sdk-cli, cli
-    gitBranch                                             str  HEAD
+    gitBranch                                             str  main, HEAD
     isSidechain                                           bool  False
     parentUuid                                            str  (varies)
-    rendered                                              list 415/424
-    rendered[]                                            object 415/424
-    rendered[].content                                    str 415/424  (varies)
+    rendered                                              list 580/597
+    rendered[]                                            object 580/597
+    rendered[].content                                    str 580/597  (varies)
     sessionId                                             str  (varies)
-    session_id                                            str 5/424  (varies)
+    session_id                                            str 5/597  (varies)
     timestamp                                             str  (varies)
     type                                                  str  attachment
     userType                                              str  external
     uuid                                                  str  (varies)
     version                                               str  2.1.261
 
-  user  ×260
+  user  ×369
     cwd                                       str  (varies)
     entrypoint                                str  sdk-cli, cli
-    gitBranch                                 str  HEAD
-    isMeta                                    bool 1/260  True
+    gitBranch                                 str  main, HEAD
+    isMeta                                    bool 1/369  True
     isSidechain                               bool  False
     message                                   object
     message.content                           list|str  (varies)
-    message.content[]                         object 241/260  (varies)
-    message.content[].content                 list|str 241/260  (varies)
-    message.content[].content[]               object 1/260  (varies)
-    message.content[].content[].tool_name     str 1/260  WebSearch, WebFetch
-    message.content[].content[].type          str 1/260  tool_reference
-    message.content[].is_error                bool 230/260  False, True
-    message.content[].tool_use_id             str 241/260  (varies)
-    message.content[].type                    str 241/260  tool_result
+    message.content[]                         object 344/369  (varies)
+    message.content[].content                 list|str 344/369  (varies)
+    message.content[].content[]               object 1/369  (varies)
+    message.content[].content[].tool_name     str 1/369  WebSearch, WebFetch
+    message.content[].content[].type          str 1/369  tool_reference
+    message.content[].is_error                bool 333/369  False, True
+    message.content[].tool_use_id             str 344/369  (varies)
+    message.content[].type                    str 344/369  tool_result
     message.role                              str  user
-    origin                                    object 1/260
-    origin.kind                               str 1/260  human
+    origin                                    object 1/369
+    origin.kind                               str 1/369  human
     parentUuid                                null|str  (varies)
-    permissionMode                            str 16/260  bypassPermissions, default, auto
+    permissionMode                            str 22/369  default, bypassPermissions, auto
     promptId                                  str  (varies)
-    promptSource                              str 16/260  sdk, typed
+    promptSource                              str 22/369  sdk, typed
     sessionId                                 str  (varies)
-    sourceToolAssistantUUID                   str 241/260  (varies)
+    sourceToolAssistantUUID                   str 344/369  (varies)
     timestamp                                 str  (varies)
-    toolUseResult                             object|str 241/260  (varies)
-    toolUseResult.content                     str 7/260  (varies)
-    toolUseResult.durationSeconds             float 1/260  (varies)
-    toolUseResult.filePath                    str 9/260  (varies)
-    toolUseResult.gitOperation                object 3/260
-    toolUseResult.gitOperation.push           object 3/260
-    toolUseResult.gitOperation.push.branch    str 3/260  main
-    toolUseResult.interrupted                 bool 226/260  False
-    toolUseResult.isImage                     bool 226/260  False
-    toolUseResult.matches                     list 1/260
-    toolUseResult.matches[]                   str 1/260  WebSearch, WebFetch
-    toolUseResult.newString                   str 2/260  (varies)
-    toolUseResult.noOutputExpected            bool 226/260  False, True
-    toolUseResult.oldString                   str 2/260  (varies)
-    toolUseResult.originalFile                null|str 9/260  (varies)
-    toolUseResult.query                       str 2/260  (varies)
-    toolUseResult.replaceAll                  bool 2/260  False
-    toolUseResult.results                     list 1/260
-    toolUseResult.results[]                   object|str 1/260  (varies)
-    toolUseResult.results[].content           list 1/260  (varies)
-    toolUseResult.results[].content[]         object 1/260  (varies)
-    toolUseResult.results[].content[].title   str 1/260  (varies)
-    toolUseResult.results[].content[].url     str 1/260  (varies)
-    toolUseResult.results[].tool_use_id       str 1/260  (varies)
-    toolUseResult.returnCodeInterpretation    str 2/260  No matches found
-    toolUseResult.searchCount                 int 1/260  (varies)
-    toolUseResult.stderr                      str 226/260  (varies)
-    toolUseResult.stdout                      str 226/260  (varies)
-    toolUseResult.structuredPatch             list 9/260
-    toolUseResult.structuredPatch[]           object 2/260
-    toolUseResult.structuredPatch[].lines     list 2/260
-    toolUseResult.structuredPatch[].lines[]   str 2/260  (varies)
-    toolUseResult.structuredPatch[].newLines  int 2/260  (varies)
-    toolUseResult.structuredPatch[].newStart  int 2/260  (varies)
-    toolUseResult.structuredPatch[].oldLines  int 2/260  (varies)
-    toolUseResult.structuredPatch[].oldStart  int 2/260  (varies)
-    toolUseResult.total_deferred_tools        int 1/260  (varies)
-    toolUseResult.type                        str 7/260  create
-    toolUseResult.userModified                bool 9/260  False
+    toolUseResult                             object|str 344/369  (varies)
+    toolUseResult.content                     str 7/369  (varies)
+    toolUseResult.durationSeconds             float 1/369  (varies)
+    toolUseResult.filePath                    str 9/369  (varies)
+    toolUseResult.gitOperation                object 6/369
+    toolUseResult.gitOperation.push           object 6/369
+    toolUseResult.gitOperation.push.branch    str 6/369  main
+    toolUseResult.interrupted                 bool 327/369  False
+    toolUseResult.isImage                     bool 327/369  False
+    toolUseResult.matches                     list 1/369
+    toolUseResult.matches[]                   str 1/369  WebSearch, WebFetch
+    toolUseResult.newString                   str 2/369  (varies)
+    toolUseResult.noOutputExpected            bool 327/369  False, True
+    toolUseResult.oldString                   str 2/369  (varies)
+    toolUseResult.originalFile                null|str 9/369  (varies)
+    toolUseResult.persistedOutputPath         str 1/369  (varies)
+    toolUseResult.persistedOutputSize         int 1/369  (varies)
+    toolUseResult.query                       str 2/369  (varies)
+    toolUseResult.replaceAll                  bool 2/369  False
+    toolUseResult.results                     list 1/369
+    toolUseResult.results[]                   object|str 1/369  (varies)
+    toolUseResult.results[].content           list 1/369  (varies)
+    toolUseResult.results[].content[]         object 1/369  (varies)
+    toolUseResult.results[].content[].title   str 1/369  (varies)
+    toolUseResult.results[].content[].url     str 1/369  (varies)
+    toolUseResult.results[].tool_use_id       str 1/369  (varies)
+    toolUseResult.returnCodeInterpretation    str 2/369  No matches found
+    toolUseResult.searchCount                 int 1/369  (varies)
+    toolUseResult.stderr                      str 327/369  (varies)
+    toolUseResult.stdout                      str 327/369  (varies)
+    toolUseResult.structuredPatch             list 9/369
+    toolUseResult.structuredPatch[]           object 2/369
+    toolUseResult.structuredPatch[].lines     list 2/369
+    toolUseResult.structuredPatch[].lines[]   str 2/369  (varies)
+    toolUseResult.structuredPatch[].newLines  int 2/369  (varies)
+    toolUseResult.structuredPatch[].newStart  int 2/369  (varies)
+    toolUseResult.structuredPatch[].oldLines  int 2/369  (varies)
+    toolUseResult.structuredPatch[].oldStart  int 2/369  (varies)
+    toolUseResult.total_deferred_tools        int 1/369  (varies)
+    toolUseResult.type                        str 7/369  create
+    toolUseResult.userModified                bool 9/369  False
     type                                      str  user
     userType                                  str  external
     uuid                                      str  (varies)
     version                                   str  2.1.261
 
-  atis-latch  ×91
+  atis-latch  ×128
     atis       str  (varies)
     sessionId  str  (varies)
     type       str  atis-latch
 
-  ai-title  ×81
-    aiTitle    str  (varies)
-    sessionId  str  (varies)
-    type       str  ai-title
-
-  last-prompt  ×81
-    lastPrompt  str 78/81  (varies)
+  last-prompt  ×114
+    lastPrompt  str 111/114  (varies)
     leafUuid    str  (varies)
     sessionId   str  (varies)
     type        str  last-prompt
 
-  queue-operation  ×30
-    content    str 15/30  (varies)
+  ai-title  ×109
+    aiTitle    str  (varies)
+    sessionId  str  (varies)
+    type       str  ai-title
+
+  queue-operation  ×42
+    content    str 21/42  (varies)
     operation  str  enqueue, dequeue
     sessionId  str  (varies)
     timestamp  str  (varies)
@@ -421,9 +435,9 @@ shape: session  (17 logs, 1,426 records)
     uuid          str  (varies)
     version       str  2.1.261
 
-shape: stream  (9 logs, 1,425 records)
+shape: stream  (11 logs, 2,049 records)
 
-  system/thinking_tokens  ×564
+  system/thinking_tokens  ×820
     estimated_tokens        int  (varies)
     estimated_tokens_delta  int  (varies)
     session_id              str  (varies)
@@ -431,31 +445,31 @@ shape: stream  (9 logs, 1,425 records)
     type                    str  system
     uuid                    str  (varies)
 
-  assistant  ×430
-    error                                                 str 1/430  authentication_failed
-    is_api_error_message                                  bool 1/430  True
+  assistant  ×625
+    error                                                 str 2/625  authentication_failed, rate_limit
+    is_api_error_message                                  bool 2/625  True
     message                                               object
-    message.container                                     null 1/430
+    message.container                                     null 2/625
     message.content                                       list  (varies)
     message.content[]                                     object  (varies)
-    message.content[].caller                              object 242/430
-    message.content[].caller.type                         str 242/430  direct
-    message.content[].id                                  str 242/430  (varies)
-    message.content[].input                               object 242/430  (varies)
-    message.content[].input.command                       str 231/430  (varies)
-    message.content[].input.content                       str 7/430  (varies)
-    message.content[].input.dangerouslyDisableSandbox     bool 1/430  True
-    message.content[].input.description                   str 147/430  (varies)
-    message.content[].input.file_path                     str 9/430  (varies)
-    message.content[].input.max_results                   int 1/430  (varies)
-    message.content[].input.new_string                    str 2/430  (varies)
-    message.content[].input.old_string                    str 2/430  (varies)
-    message.content[].input.query                         str 2/430  (varies)
-    message.content[].input.replace_all                   bool 2/430  False
-    message.content[].name                                str 242/430  Bash, Write, Edit, ToolSearch, WebSearch
-    message.content[].signature                           str 134/430  (varies)
-    message.content[].text                                str 54/430  (varies)
-    message.content[].thinking                            str 134/430  (varies)
+    message.content[].caller                              object 345/625
+    message.content[].caller.type                         str 345/625  direct
+    message.content[].id                                  str 345/625  (varies)
+    message.content[].input                               object 345/625  (varies)
+    message.content[].input.command                       str 334/625  (varies)
+    message.content[].input.content                       str 7/625  (varies)
+    message.content[].input.dangerouslyDisableSandbox     bool 1/625  True
+    message.content[].input.description                   str 174/625  (varies)
+    message.content[].input.file_path                     str 9/625  (varies)
+    message.content[].input.max_results                   int 1/625  (varies)
+    message.content[].input.new_string                    str 2/625  (varies)
+    message.content[].input.old_string                    str 2/625  (varies)
+    message.content[].input.query                         str 2/625  (varies)
+    message.content[].input.replace_all                   bool 2/625  False
+    message.content[].name                                str 345/625  Bash, Write, Edit, ToolSearch, WebSearch
+    message.content[].signature                           str 193/625  (varies)
+    message.content[].text                                str 87/625  (varies)
+    message.content[].thinking                            str 193/625  (varies)
     message.content[].type                                str  text, tool_use, thinking
     message.context_management                            null
     message.diagnostics                                   null
@@ -474,30 +488,30 @@ shape: stream  (9 logs, 1,425 records)
     message.usage.cache_read_input_tokens                 int  (varies)
     message.usage.inference_geo                           null|str  not_available
     message.usage.input_tokens                            int  (varies)
-    message.usage.iterations                              null 1/430
+    message.usage.iterations                              null 2/625
     message.usage.output_tokens                           int  (varies)
-    message.usage.output_tokens_details                   null 1/430
-    message.usage.server_tool_use                         object 1/430
-    message.usage.server_tool_use.web_fetch_requests      int 1/430  (varies)
-    message.usage.server_tool_use.web_search_requests     int 1/430  (varies)
+    message.usage.output_tokens_details                   null 2/625
+    message.usage.server_tool_use                         object 2/625
+    message.usage.server_tool_use.web_fetch_requests      int 2/625  (varies)
+    message.usage.server_tool_use.web_search_requests     int 2/625  (varies)
     message.usage.service_tier                            null|str  standard
-    message.usage.speed                                   null 1/430
+    message.usage.speed                                   null 2/625
     parent_tool_use_id                                    null
-    request_id                                            str 429/430  (varies)
+    request_id                                            str 624/625  (varies)
     session_id                                            str  (varies)
     timestamp                                             str  (varies)
     type                                                  str  assistant
     uuid                                                  str  (varies)
 
-  user  ×241
+  user  ×344
     message                                     object
     message.content                             list  (varies)
     message.content[]                           object  (varies)
     message.content[].content                   list|str  (varies)
-    message.content[].content[]                 object 1/241  (varies)
-    message.content[].content[].tool_name       str 1/241  WebSearch, WebFetch
-    message.content[].content[].type            str 1/241  tool_reference
-    message.content[].is_error                  bool 230/241  False, True
+    message.content[].content[]                 object 1/344  (varies)
+    message.content[].content[].tool_name       str 1/344  WebSearch, WebFetch
+    message.content[].content[].type            str 1/344  tool_reference
+    message.content[].is_error                  bool 333/344  False, True
     message.content[].tool_use_id               str  (varies)
     message.content[].type                      str  tool_result
     message.role                                str  user
@@ -505,55 +519,58 @@ shape: stream  (9 logs, 1,425 records)
     session_id                                  str  (varies)
     timestamp                                   str  (varies)
     tool_use_result                             object|str  (varies)
-    tool_use_result.content                     str 7/241  (varies)
-    tool_use_result.durationSeconds             float 1/241  (varies)
-    tool_use_result.filePath                    str 9/241  (varies)
-    tool_use_result.gitOperation                object 3/241
-    tool_use_result.gitOperation.push           object 3/241
-    tool_use_result.gitOperation.push.branch    str 3/241  main
-    tool_use_result.interrupted                 bool 226/241  False
-    tool_use_result.isImage                     bool 226/241  False
-    tool_use_result.matches                     list 1/241
-    tool_use_result.matches[]                   str 1/241  WebSearch, WebFetch
-    tool_use_result.newString                   str 2/241  (varies)
-    tool_use_result.noOutputExpected            bool 226/241  False, True
-    tool_use_result.oldString                   str 2/241  (varies)
-    tool_use_result.originalFile                null|str 9/241  (varies)
-    tool_use_result.query                       str 2/241  (varies)
-    tool_use_result.replaceAll                  bool 2/241  False
-    tool_use_result.results                     list 1/241
-    tool_use_result.results[]                   object|str 1/241  (varies)
-    tool_use_result.results[].content           list 1/241  (varies)
-    tool_use_result.results[].content[]         object 1/241  (varies)
-    tool_use_result.results[].content[].title   str 1/241  (varies)
-    tool_use_result.results[].content[].url     str 1/241  (varies)
-    tool_use_result.results[].tool_use_id       str 1/241  (varies)
-    tool_use_result.returnCodeInterpretation    str 2/241  No matches found
-    tool_use_result.searchCount                 int 1/241  (varies)
-    tool_use_result.stderr                      str 226/241  (varies)
-    tool_use_result.stdout                      str 226/241  (varies)
-    tool_use_result.structuredPatch             list 9/241
-    tool_use_result.structuredPatch[]           object 2/241
-    tool_use_result.structuredPatch[].lines     list 2/241
-    tool_use_result.structuredPatch[].lines[]   str 2/241  (varies)
-    tool_use_result.structuredPatch[].newLines  int 2/241  (varies)
-    tool_use_result.structuredPatch[].newStart  int 2/241  (varies)
-    tool_use_result.structuredPatch[].oldLines  int 2/241  (varies)
-    tool_use_result.structuredPatch[].oldStart  int 2/241  (varies)
-    tool_use_result.total_deferred_tools        int 1/241  (varies)
-    tool_use_result.type                        str 7/241  create
-    tool_use_result.userModified                bool 9/241  False
+    tool_use_result.content                     str 7/344  (varies)
+    tool_use_result.durationSeconds             float 1/344  (varies)
+    tool_use_result.filePath                    str 9/344  (varies)
+    tool_use_result.gitOperation                object 6/344
+    tool_use_result.gitOperation.push           object 6/344
+    tool_use_result.gitOperation.push.branch    str 6/344  main
+    tool_use_result.interrupted                 bool 327/344  False
+    tool_use_result.isImage                     bool 327/344  False
+    tool_use_result.matches                     list 1/344
+    tool_use_result.matches[]                   str 1/344  WebSearch, WebFetch
+    tool_use_result.newString                   str 2/344  (varies)
+    tool_use_result.noOutputExpected            bool 327/344  False, True
+    tool_use_result.oldString                   str 2/344  (varies)
+    tool_use_result.originalFile                null|str 9/344  (varies)
+    tool_use_result.persistedOutputPath         str 1/344  (varies)
+    tool_use_result.persistedOutputSize         int 1/344  (varies)
+    tool_use_result.query                       str 2/344  (varies)
+    tool_use_result.replaceAll                  bool 2/344  False
+    tool_use_result.results                     list 1/344
+    tool_use_result.results[]                   object|str 1/344  (varies)
+    tool_use_result.results[].content           list 1/344  (varies)
+    tool_use_result.results[].content[]         object 1/344  (varies)
+    tool_use_result.results[].content[].title   str 1/344  (varies)
+    tool_use_result.results[].content[].url     str 1/344  (varies)
+    tool_use_result.results[].tool_use_id       str 1/344  (varies)
+    tool_use_result.returnCodeInterpretation    str 2/344  No matches found
+    tool_use_result.searchCount                 int 1/344  (varies)
+    tool_use_result.stderr                      str 327/344  (varies)
+    tool_use_result.stdout                      str 327/344  (varies)
+    tool_use_result.structuredPatch             list 9/344
+    tool_use_result.structuredPatch[]           object 2/344
+    tool_use_result.structuredPatch[].lines     list 2/344
+    tool_use_result.structuredPatch[].lines[]   str 2/344  (varies)
+    tool_use_result.structuredPatch[].newLines  int 2/344  (varies)
+    tool_use_result.structuredPatch[].newStart  int 2/344  (varies)
+    tool_use_result.structuredPatch[].oldLines  int 2/344  (varies)
+    tool_use_result.structuredPatch[].oldStart  int 2/344  (varies)
+    tool_use_result.total_deferred_tools        int 1/344  (varies)
+    tool_use_result.type                        str 7/344  create
+    tool_use_result.userModified                bool 9/344  False
     type                                        str  user
     uuid                                        str  (varies)
 
-  rate_limit_event  ×113
+  rate_limit_event  ×155
     rate_limit_info                                       object
     rate_limit_info.isUsingOverage                        bool  False
-    rate_limit_info.overageDisabledReason                 str  org_level_disabled
-    rate_limit_info.overageStatus                         str  rejected
+    rate_limit_info.overageDisabledReason                 str 145/155  org_level_disabled
+    rate_limit_info.overageStatus                         str 145/155  rejected
     rate_limit_info.rateLimitType                         str  five_hour
     rate_limit_info.resetsAt                              int  (varies)
-    rate_limit_info.status                                str  allowed
+    rate_limit_info.status                                str  allowed, allowed_warning, rejected
+    rate_limit_info.surpassedThreshold                    float 10/155  (varies)
     rate_limit_info.unifiedWindows                        object
     rate_limit_info.unifiedWindows.five_hour              object
     rate_limit_info.unifiedWindows.five_hour.resetsAt     int  (varies)
@@ -561,11 +578,12 @@ shape: stream  (9 logs, 1,425 records)
     rate_limit_info.unifiedWindows.seven_day              object
     rate_limit_info.unifiedWindows.seven_day.resetsAt     int  (varies)
     rate_limit_info.unifiedWindows.seven_day.utilization  float|int  (varies)
+    rate_limit_info.utilization                           float 10/155  (varies)
     session_id                                            str  (varies)
     type                                                  str  rate_limit_event
     uuid                                                  str  (varies)
 
-  system/task_notification  ×23
+  system/task_notification  ×33
     output_file  str  (varies)
     session_id   str  (varies)
     status       str  completed, failed
@@ -576,7 +594,7 @@ shape: stream  (9 logs, 1,425 records)
     type         str  system
     uuid         str  (varies)
 
-  system/task_started  ×23
+  system/task_started  ×33
     description      str  (varies)
     is_backgrounded  bool  False
     session_id       str  (varies)
@@ -587,8 +605,8 @@ shape: stream  (9 logs, 1,425 records)
     type             str  system
     uuid             str  (varies)
 
-  system/vcs_state_changed  ×14
-    branch      str 2/14  main
+  system/vcs_state_changed  ×18
+    branch      str 4/18  main
     cwd         str  (varies)
     kind        str  push
     session_id  str  (varies)
@@ -596,7 +614,7 @@ shape: stream  (9 logs, 1,425 records)
     type        str  system
     uuid        str  (varies)
 
-  system/init  ×9
+  system/init  ×11
     agents                     list
     agents[]                   str  claude, Explore, general-purpose, Plan, statusline-setup
     analytics_disabled         bool  False
@@ -608,9 +626,9 @@ shape: stream  (9 logs, 1,425 records)
     fast_mode_disabled_reason  str  sdk_opt_in_required
     fast_mode_state            str  off
     mcp_servers                list
-    memory_paths               object 8/9
-    memory_paths.auto          str 8/9  (varies)
-    messaging_socket_path      str 8/9  (varies)
+    memory_paths               object 10/11
+    memory_paths.auto          str 10/11  (varies)
+    messaging_socket_path      str 10/11  (varies)
     model                      str  claude-opus-5
     output_style               str  default
     permissionMode             str  bypassPermissions
@@ -629,41 +647,41 @@ shape: stream  (9 logs, 1,425 records)
     type                       str  system
     uuid                       str  (varies)
 
-  result/success  ×8
-    api_error_status                                      null
+  result/success  ×10
+    api_error_status                                      int|null  (varies)
     duration_api_ms                                       int  (varies)
     duration_ms                                           int  (varies)
     fast_mode_disabled_reason                             str  sdk_opt_in_required
     fast_mode_state                                       str  off
-    first_content_frame_ms                                int 7/8  (varies)
+    first_content_frame_ms                                int 8/10  (varies)
     is_error                                              bool  True, False
     modelUsage                                            object
-    modelUsage.claude-haiku-4-5-20251001                  object 7/8
-    modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens  int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens  int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.canonicalModel   str 7/8  claude-haiku-4-5
-    modelUsage.claude-haiku-4-5-20251001.contextWindow    int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.costBasis        str 7/8  list
-    modelUsage.claude-haiku-4-5-20251001.costUSD          float 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.inputTokens      int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.maxOutputTokens  int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.outputTokens     int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.provider         str 7/8  firstParty
-    modelUsage.claude-haiku-4-5-20251001.thinkingTokens   int 7/8  (varies)
-    modelUsage.claude-haiku-4-5-20251001.webSearchRequests  int 7/8  (varies)
-    modelUsage.claude-opus-5                              object 7/8
-    modelUsage.claude-opus-5.cacheCreationInputTokens     int 7/8  (varies)
-    modelUsage.claude-opus-5.cacheReadInputTokens         int 7/8  (varies)
-    modelUsage.claude-opus-5.canonicalModel               str 7/8  claude-opus-5
-    modelUsage.claude-opus-5.contextWindow                int 7/8  (varies)
-    modelUsage.claude-opus-5.costBasis                    str 7/8  list
-    modelUsage.claude-opus-5.costUSD                      float 7/8  (varies)
-    modelUsage.claude-opus-5.inputTokens                  int 7/8  (varies)
-    modelUsage.claude-opus-5.maxOutputTokens              int 7/8  (varies)
-    modelUsage.claude-opus-5.outputTokens                 int 7/8  (varies)
-    modelUsage.claude-opus-5.provider                     str 7/8  firstParty
-    modelUsage.claude-opus-5.thinkingTokens               int 7/8  (varies)
-    modelUsage.claude-opus-5.webSearchRequests            int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001                  object 9/10
+    modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens  int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens  int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.canonicalModel   str 9/10  claude-haiku-4-5
+    modelUsage.claude-haiku-4-5-20251001.contextWindow    int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.costBasis        str 9/10  list
+    modelUsage.claude-haiku-4-5-20251001.costUSD          float 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.inputTokens      int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.maxOutputTokens  int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.outputTokens     int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.provider         str 9/10  firstParty
+    modelUsage.claude-haiku-4-5-20251001.thinkingTokens   int 9/10  (varies)
+    modelUsage.claude-haiku-4-5-20251001.webSearchRequests  int 9/10  (varies)
+    modelUsage.claude-opus-5                              object 9/10
+    modelUsage.claude-opus-5.cacheCreationInputTokens     int 9/10  (varies)
+    modelUsage.claude-opus-5.cacheReadInputTokens         int 9/10  (varies)
+    modelUsage.claude-opus-5.canonicalModel               str 9/10  claude-opus-5
+    modelUsage.claude-opus-5.contextWindow                int 9/10  (varies)
+    modelUsage.claude-opus-5.costBasis                    str 9/10  list
+    modelUsage.claude-opus-5.costUSD                      float 9/10  (varies)
+    modelUsage.claude-opus-5.inputTokens                  int 9/10  (varies)
+    modelUsage.claude-opus-5.maxOutputTokens              int 9/10  (varies)
+    modelUsage.claude-opus-5.outputTokens                 int 9/10  (varies)
+    modelUsage.claude-opus-5.provider                     str 9/10  firstParty
+    modelUsage.claude-opus-5.thinkingTokens               int 9/10  (varies)
+    modelUsage.claude-opus-5.webSearchRequests            int 9/10  (varies)
     num_turns                                             int  (varies)
     permission_denials                                    list
     queued_turn_count                                     int  (varies)
@@ -692,10 +710,10 @@ shape: stream  (9 logs, 1,425 records)
     subagent_stats.started_in_background                  int  (varies)
     subtype                                               str  success
     terminal_reason                                       str  api_error, completed
-    time_to_request_ms                                    int 7/8  (varies)
+    time_to_request_ms                                    int 8/10  (varies)
     total_cost_usd                                        float|int  (varies)
-    ttft_ms                                               int 7/8  (varies)
-    ttft_stream_ms                                        int 7/8  (varies)
+    ttft_ms                                               int 8/10  (varies)
+    ttft_stream_ms                                        int 8/10  (varies)
     type                                                  str  result
     usage                                                 object
     usage.cache_creation                                  object
@@ -706,15 +724,15 @@ shape: stream  (9 logs, 1,425 records)
     usage.inference_geo                                   str  (varies)
     usage.input_tokens                                    int  (varies)
     usage.iterations                                      list
-    usage.iterations[]                                    object 7/8
-    usage.iterations[].cache_creation                     object 7/8
-    usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 7/8  (varies)
-    usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 7/8  (varies)
-    usage.iterations[].cache_creation_input_tokens        int 7/8  (varies)
-    usage.iterations[].cache_read_input_tokens            int 7/8  (varies)
-    usage.iterations[].input_tokens                       int 7/8  (varies)
-    usage.iterations[].output_tokens                      int 7/8  (varies)
-    usage.iterations[].type                               str 7/8  message
+    usage.iterations[]                                    object 9/10
+    usage.iterations[].cache_creation                     object 9/10
+    usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 9/10  (varies)
+    usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 9/10  (varies)
+    usage.iterations[].cache_creation_input_tokens        int 9/10  (varies)
+    usage.iterations[].cache_read_input_tokens            int 9/10  (varies)
+    usage.iterations[].input_tokens                       int 9/10  (varies)
+    usage.iterations[].output_tokens                      int 9/10  (varies)
+    usage.iterations[].type                               str 9/10  message
     usage.output_tokens                                   int  (varies)
     usage.output_tokens_details                           object
     usage.output_tokens_details.thinking_tokens           int  (varies)

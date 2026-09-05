@@ -1,14 +1,14 @@
 {
   "shapes": {
     "session": {
-      "logs": 17,
+      "logs": 23,
       "malformed": 0,
       "record_types": [
         {
           "fields": [
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "apiBlockIndex",
               "types": [
@@ -17,8 +17,18 @@
               "varies": true
             },
             {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "apiErrorStatus",
+              "types": [
+                "int"
+              ],
+              "varies": true
+            },
+            {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "cwd",
               "types": [
@@ -28,10 +38,10 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 631,
               "examples": [
-                "medium",
-                "high"
+                "high",
+                "medium"
               ],
               "path": "effort",
               "types": [
@@ -41,7 +51,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "sdk-cli",
                 "cli"
@@ -54,9 +64,10 @@
             },
             {
               "always": false,
-              "count": 2,
+              "count": 3,
               "examples": [
-                "authentication_failed"
+                "authentication_failed",
+                "rate_limit"
               ],
               "path": "error",
               "types": [
@@ -66,8 +77,9 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
+                "main",
                 "HEAD"
               ],
               "path": "gitBranch",
@@ -78,7 +90,7 @@
             },
             {
               "always": false,
-              "count": 2,
+              "count": 3,
               "examples": [
                 "True"
               ],
@@ -90,7 +102,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "False"
               ],
@@ -102,7 +114,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message",
               "types": [
@@ -112,7 +124,7 @@
             },
             {
               "always": false,
-              "count": 2,
+              "count": 3,
               "examples": [],
               "path": "message.container",
               "types": [
@@ -122,7 +134,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.content",
               "types": [
@@ -132,7 +144,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.content[]",
               "types": [
@@ -142,7 +154,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].caller",
               "types": [
@@ -152,7 +164,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [
                 "direct"
               ],
@@ -164,7 +176,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].id",
               "types": [
@@ -174,7 +186,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].input",
               "types": [
@@ -184,7 +196,7 @@
             },
             {
               "always": false,
-              "count": 230,
+              "count": 333,
               "examples": [],
               "path": "message.content[].input.command",
               "types": [
@@ -216,7 +228,7 @@
             },
             {
               "always": false,
-              "count": 146,
+              "count": 174,
               "examples": [],
               "path": "message.content[].input.description",
               "types": [
@@ -288,7 +300,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [
                 "Bash",
                 "ToolSearch",
@@ -304,7 +316,7 @@
             },
             {
               "always": false,
-              "count": 135,
+              "count": 194,
               "examples": [],
               "path": "message.content[].signature",
               "types": [
@@ -314,7 +326,7 @@
             },
             {
               "always": false,
-              "count": 61,
+              "count": 98,
               "examples": [],
               "path": "message.content[].text",
               "types": [
@@ -324,7 +336,7 @@
             },
             {
               "always": false,
-              "count": 135,
+              "count": 194,
               "examples": [],
               "path": "message.content[].thinking",
               "types": [
@@ -334,11 +346,11 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "text",
-                "tool_use",
-                "thinking"
+                "thinking",
+                "tool_use"
               ],
               "path": "message.content[].type",
               "types": [
@@ -348,7 +360,7 @@
             },
             {
               "always": false,
-              "count": 2,
+              "count": 3,
               "examples": [],
               "path": "message.context_management",
               "types": [
@@ -358,7 +370,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.diagnostics",
               "types": [
@@ -368,7 +380,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.id",
               "types": [
@@ -378,11 +390,12 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
+                "claude-sonnet-5",
+                "claude-haiku-4-5-20251001",
                 "claude-opus-5",
-                "<synthetic>",
-                "claude-sonnet-5"
+                "<synthetic>"
               ],
               "path": "message.model",
               "types": [
@@ -392,7 +405,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "assistant"
               ],
@@ -404,7 +417,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.stop_details",
               "types": [
@@ -414,10 +427,10 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
-                "tool_use",
                 "end_turn",
+                "tool_use",
                 "stop_sequence"
               ],
               "path": "message.stop_reason",
@@ -428,7 +441,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.stop_sequence",
               "types": [
@@ -439,7 +452,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "message"
               ],
@@ -451,7 +464,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage",
               "types": [
@@ -461,7 +474,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.cache_creation",
               "types": [
@@ -471,7 +484,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.cache_creation.ephemeral_1h_input_tokens",
               "types": [
@@ -481,7 +494,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.cache_creation.ephemeral_5m_input_tokens",
               "types": [
@@ -491,7 +504,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.cache_creation_input_tokens",
               "types": [
@@ -501,7 +514,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.cache_read_input_tokens",
               "types": [
@@ -511,7 +524,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "not_available"
               ],
@@ -524,7 +537,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.input_tokens",
               "types": [
@@ -534,7 +547,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.iterations",
               "types": [
@@ -545,7 +558,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[]",
               "types": [
@@ -555,7 +568,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].cache_creation",
               "types": [
@@ -565,7 +578,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].cache_creation.ephemeral_1h_input_tokens",
               "types": [
@@ -575,7 +588,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].cache_creation.ephemeral_5m_input_tokens",
               "types": [
@@ -585,7 +598,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].cache_creation_input_tokens",
               "types": [
@@ -595,7 +608,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].cache_read_input_tokens",
               "types": [
@@ -605,7 +618,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].input_tokens",
               "types": [
@@ -615,7 +628,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.iterations[].output_tokens",
               "types": [
@@ -625,7 +638,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [
                 "message"
               ],
@@ -637,7 +650,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.output_tokens",
               "types": [
@@ -647,7 +660,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.output_tokens_details",
               "types": [
@@ -658,7 +671,7 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 633,
               "examples": [],
               "path": "message.usage.output_tokens_details.thinking_tokens",
               "types": [
@@ -668,7 +681,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.server_tool_use",
               "types": [
@@ -678,7 +691,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.server_tool_use.web_fetch_requests",
               "types": [
@@ -688,7 +701,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "message.usage.server_tool_use.web_search_requests",
               "types": [
@@ -698,7 +711,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "standard"
               ],
@@ -711,7 +724,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "standard"
               ],
@@ -724,7 +737,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "parentUuid",
               "types": [
@@ -734,7 +747,121 @@
             },
             {
               "always": false,
-              "count": 435,
+              "count": 1,
+              "examples": [],
+              "path": "quotaLimits",
+              "types": [
+                "object"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "False"
+              ],
+              "path": "quotaLimits.isUsingOverage",
+              "types": [
+                "bool"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "org_level_disabled"
+              ],
+              "path": "quotaLimits.overageDisabledReason",
+              "types": [
+                "str"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "rejected"
+              ],
+              "path": "quotaLimits.overageStatus",
+              "types": [
+                "str"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "five_hour"
+              ],
+              "path": "quotaLimits.rateLimitType",
+              "types": [
+                "str"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "quotaLimits.resetsAt",
+              "types": [
+                "int"
+              ],
+              "varies": true
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "rejected"
+              ],
+              "path": "quotaLimits.status",
+              "types": [
+                "str"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "False"
+              ],
+              "path": "quotaLimits.unifiedRateLimitFallbackAvailable",
+              "types": [
+                "bool"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "quotaLimits.upgradePaths",
+              "types": [
+                "list"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [
+                "upgrade_plan"
+              ],
+              "path": "quotaLimits.upgradePaths[]",
+              "types": [
+                "str"
+              ],
+              "varies": false
+            },
+            {
+              "always": false,
+              "count": 634,
               "examples": [],
               "path": "requestId",
               "types": [
@@ -744,7 +871,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "sessionId",
               "types": [
@@ -764,7 +891,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "timestamp",
               "types": [
@@ -774,7 +901,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "assistant"
               ],
@@ -786,7 +913,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "external"
               ],
@@ -798,7 +925,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -808,7 +935,7 @@
             },
             {
               "always": true,
-              "count": 437,
+              "count": 636,
               "examples": [
                 "2.1.261"
               ],
@@ -819,14 +946,14 @@
               "varies": false
             }
           ],
-          "records": 437,
+          "records": 636,
           "type": "assistant"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "attachment",
               "types": [
@@ -836,7 +963,7 @@
             },
             {
               "always": false,
-              "count": 28,
+              "count": 40,
               "examples": [],
               "path": "attachment.addedLines",
               "types": [
@@ -846,7 +973,7 @@
             },
             {
               "always": false,
-              "count": 28,
+              "count": 40,
               "examples": [],
               "path": "attachment.addedLines[]",
               "types": [
@@ -856,7 +983,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.addedNames",
               "types": [
@@ -866,7 +993,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.addedNames[]",
               "types": [
@@ -876,7 +1003,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.addedTypes",
               "types": [
@@ -886,7 +1013,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.addedTypes[]",
               "types": [
@@ -896,7 +1023,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "False"
               ],
@@ -908,7 +1035,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "True"
               ],
@@ -920,7 +1047,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "strict"
               ],
@@ -932,7 +1059,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "True"
               ],
@@ -944,7 +1071,7 @@
             },
             {
               "always": false,
-              "count": 39,
+              "count": 57,
               "examples": [],
               "path": "attachment.changes",
               "types": [
@@ -954,7 +1081,7 @@
             },
             {
               "always": false,
-              "count": 39,
+              "count": 57,
               "examples": [],
               "path": "attachment.changes[]",
               "types": [
@@ -964,7 +1091,7 @@
             },
             {
               "always": false,
-              "count": 39,
+              "count": 57,
               "examples": [
                 "workingDirectory"
               ],
@@ -976,7 +1103,7 @@
             },
             {
               "always": false,
-              "count": 39,
+              "count": 57,
               "examples": [],
               "path": "attachment.changes[].from",
               "types": [
@@ -996,7 +1123,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.content",
               "types": [
@@ -1006,7 +1133,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.context",
               "types": [
@@ -1016,7 +1143,17 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 1,
+              "examples": [],
+              "path": "attachment.context.gitStatus",
+              "types": [
+                "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": false,
+              "count": 20,
               "examples": [],
               "path": "attachment.context.userEmail",
               "types": [
@@ -1026,7 +1163,7 @@
             },
             {
               "always": false,
-              "count": 16,
+              "count": 22,
               "examples": [],
               "path": "attachment.date",
               "types": [
@@ -1231,7 +1368,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.failedMcpServers",
               "types": [
@@ -1241,7 +1378,7 @@
             },
             {
               "always": false,
-              "count": 12,
+              "count": 14,
               "examples": [],
               "path": "attachment.filename",
               "types": [
@@ -1251,7 +1388,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.identity",
               "types": [
@@ -1261,10 +1398,11 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [
-                "May 2026",
-                "January 2026"
+                "January 2026",
+                "February 2025",
+                "May 2026"
               ],
               "path": "attachment.identity.knowledgeCutoff",
               "types": [
@@ -1274,10 +1412,11 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [
-                "Opus 5",
-                "Sonnet 5"
+                "Sonnet 5",
+                "Haiku 4.5",
+                "Opus 5"
               ],
               "path": "attachment.identity.marketingName",
               "types": [
@@ -1287,10 +1426,11 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [
-                "claude-opus-5",
-                "claude-sonnet-5"
+                "claude-sonnet-5",
+                "claude-haiku-4-5-20251001",
+                "claude-opus-5"
               ],
               "path": "attachment.identity.modelId",
               "types": [
@@ -1300,7 +1440,7 @@
             },
             {
               "always": false,
-              "count": 28,
+              "count": 40,
               "examples": [
                 "True"
               ],
@@ -1312,7 +1452,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.names",
               "types": [
@@ -1322,7 +1462,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.names[]",
               "types": [
@@ -1332,7 +1472,7 @@
             },
             {
               "always": false,
-              "count": 13,
+              "count": 19,
               "examples": [],
               "path": "attachment.needsAuthMcpServers",
               "types": [
@@ -1342,7 +1482,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.pendingMcpServers",
               "types": [
@@ -1362,7 +1502,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.readdedNames",
               "types": [
@@ -1372,7 +1512,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.removedNames",
               "types": [
@@ -1382,7 +1522,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.removedTypes",
               "types": [
@@ -1404,7 +1544,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [
                 "False"
               ],
@@ -1416,7 +1556,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.skillCount",
               "types": [
@@ -1426,7 +1566,7 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [],
               "path": "attachment.snapshot",
               "types": [
@@ -1436,7 +1576,7 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [],
               "path": "attachment.snapshot.additionalWorkingDirectories",
               "types": [
@@ -1446,8 +1586,9 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [
+                "True",
                 "False"
               ],
               "path": "attachment.snapshot.isGitRepo",
@@ -1458,7 +1599,7 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [
                 "False"
               ],
@@ -1470,7 +1611,7 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [
                 "Linux 6.12.107+deb13-amd64"
               ],
@@ -1482,7 +1623,7 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [
                 "linux"
               ],
@@ -1504,10 +1645,10 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [
-                "unknown",
-                "bash"
+                "bash",
+                "unknown"
               ],
               "path": "attachment.snapshot.shell",
               "types": [
@@ -1517,7 +1658,7 @@
             },
             {
               "always": false,
-              "count": 53,
+              "count": 77,
               "examples": [],
               "path": "attachment.snapshot.workingDirectory",
               "types": [
@@ -1527,7 +1668,7 @@
             },
             {
               "always": false,
-              "count": 12,
+              "count": 14,
               "examples": [],
               "path": "attachment.snippet",
               "types": [
@@ -1537,7 +1678,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "True"
               ],
@@ -1549,7 +1690,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 16,
               "examples": [],
               "path": "attachment.systemPrompt",
               "types": [
@@ -1559,7 +1700,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 16,
               "examples": [],
               "path": "attachment.systemPrompt[]",
               "types": [
@@ -1569,7 +1710,7 @@
             },
             {
               "always": false,
-              "count": 269,
+              "count": 376,
               "examples": [],
               "path": "attachment.text",
               "types": [
@@ -1579,7 +1720,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools",
               "types": [
@@ -1589,7 +1730,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[]",
               "types": [
@@ -1599,7 +1740,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].description",
               "types": [
@@ -1609,7 +1750,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].name",
               "types": [
@@ -1619,7 +1760,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema",
               "types": [
@@ -1629,7 +1770,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema.description",
               "types": [
@@ -1639,7 +1780,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [
                 "True"
               ],
@@ -1651,7 +1792,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema.input_schema",
               "types": [
@@ -1661,7 +1802,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema.input_schema.$schema",
               "types": [
@@ -1671,7 +1812,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [
                 "False"
               ],
@@ -1683,7 +1824,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema.input_schema.properties",
               "types": [
@@ -1693,7 +1834,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema.input_schema.required",
               "types": [
@@ -1703,7 +1844,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [
                 "object"
               ],
@@ -1715,7 +1856,7 @@
             },
             {
               "always": false,
-              "count": 4,
+              "count": 8,
               "examples": [],
               "path": "attachment.tools[].schema.name",
               "types": [
@@ -1725,7 +1866,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "attachment.type",
               "types": [
@@ -1745,7 +1886,7 @@
             },
             {
               "always": false,
-              "count": 14,
+              "count": 20,
               "examples": [],
               "path": "attachment.wireHiddenNames",
               "types": [
@@ -1755,7 +1896,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "cwd",
               "types": [
@@ -1765,7 +1906,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [
                 "sdk-cli",
                 "cli"
@@ -1778,8 +1919,9 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [
+                "main",
                 "HEAD"
               ],
               "path": "gitBranch",
@@ -1790,7 +1932,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [
                 "False"
               ],
@@ -1802,7 +1944,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "parentUuid",
               "types": [
@@ -1812,7 +1954,7 @@
             },
             {
               "always": false,
-              "count": 415,
+              "count": 580,
               "examples": [],
               "path": "rendered",
               "types": [
@@ -1822,7 +1964,7 @@
             },
             {
               "always": false,
-              "count": 415,
+              "count": 580,
               "examples": [],
               "path": "rendered[]",
               "types": [
@@ -1832,7 +1974,7 @@
             },
             {
               "always": false,
-              "count": 415,
+              "count": 580,
               "examples": [],
               "path": "rendered[].content",
               "types": [
@@ -1842,7 +1984,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "sessionId",
               "types": [
@@ -1862,7 +2004,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "timestamp",
               "types": [
@@ -1872,7 +2014,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [
                 "attachment"
               ],
@@ -1884,7 +2026,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [
                 "external"
               ],
@@ -1896,7 +2038,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -1906,7 +2048,7 @@
             },
             {
               "always": true,
-              "count": 424,
+              "count": 597,
               "examples": [
                 "2.1.261"
               ],
@@ -1917,14 +2059,14 @@
               "varies": false
             }
           ],
-          "records": 424,
+          "records": 597,
           "type": "attachment"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "cwd",
               "types": [
@@ -1934,7 +2076,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
                 "sdk-cli",
                 "cli"
@@ -1947,8 +2089,9 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
+                "main",
                 "HEAD"
               ],
               "path": "gitBranch",
@@ -1971,7 +2114,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
                 "False"
               ],
@@ -1983,7 +2126,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "message",
               "types": [
@@ -1993,7 +2136,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "message.content",
               "types": [
@@ -2004,7 +2147,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[]",
               "types": [
@@ -2014,7 +2157,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].content",
               "types": [
@@ -2060,7 +2203,7 @@
             },
             {
               "always": false,
-              "count": 230,
+              "count": 333,
               "examples": [
                 "False",
                 "True"
@@ -2073,7 +2216,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].tool_use_id",
               "types": [
@@ -2083,7 +2226,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [
                 "tool_result"
               ],
@@ -2095,7 +2238,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
                 "user"
               ],
@@ -2129,7 +2272,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "parentUuid",
               "types": [
@@ -2140,10 +2283,10 @@
             },
             {
               "always": false,
-              "count": 16,
+              "count": 22,
               "examples": [
-                "bypassPermissions",
                 "default",
+                "bypassPermissions",
                 "auto"
               ],
               "path": "permissionMode",
@@ -2154,7 +2297,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "promptId",
               "types": [
@@ -2164,7 +2307,7 @@
             },
             {
               "always": false,
-              "count": 16,
+              "count": 22,
               "examples": [
                 "sdk",
                 "typed"
@@ -2177,7 +2320,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "sessionId",
               "types": [
@@ -2187,7 +2330,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "sourceToolAssistantUUID",
               "types": [
@@ -2197,7 +2340,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "timestamp",
               "types": [
@@ -2207,7 +2350,7 @@
             },
             {
               "always": false,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "toolUseResult",
               "types": [
@@ -2248,7 +2391,7 @@
             },
             {
               "always": false,
-              "count": 3,
+              "count": 6,
               "examples": [],
               "path": "toolUseResult.gitOperation",
               "types": [
@@ -2258,7 +2401,7 @@
             },
             {
               "always": false,
-              "count": 3,
+              "count": 6,
               "examples": [],
               "path": "toolUseResult.gitOperation.push",
               "types": [
@@ -2268,7 +2411,7 @@
             },
             {
               "always": false,
-              "count": 3,
+              "count": 6,
               "examples": [
                 "main"
               ],
@@ -2280,7 +2423,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [
                 "False"
               ],
@@ -2292,7 +2435,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [
                 "False"
               ],
@@ -2337,7 +2480,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [
                 "False",
                 "True"
@@ -2366,6 +2509,26 @@
               "types": [
                 "null",
                 "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "toolUseResult.persistedOutputPath",
+              "types": [
+                "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "toolUseResult.persistedOutputSize",
+              "types": [
+                "int"
               ],
               "varies": true
             },
@@ -2486,7 +2649,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [],
               "path": "toolUseResult.stderr",
               "types": [
@@ -2496,7 +2659,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [],
               "path": "toolUseResult.stdout",
               "types": [
@@ -2620,7 +2783,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
                 "user"
               ],
@@ -2632,7 +2795,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
                 "external"
               ],
@@ -2644,7 +2807,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -2654,7 +2817,7 @@
             },
             {
               "always": true,
-              "count": 260,
+              "count": 369,
               "examples": [
                 "2.1.261"
               ],
@@ -2665,14 +2828,14 @@
               "varies": false
             }
           ],
-          "records": 260,
+          "records": 369,
           "type": "user"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 91,
+              "count": 128,
               "examples": [],
               "path": "atis",
               "types": [
@@ -2682,7 +2845,7 @@
             },
             {
               "always": true,
-              "count": 91,
+              "count": 128,
               "examples": [],
               "path": "sessionId",
               "types": [
@@ -2692,7 +2855,7 @@
             },
             {
               "always": true,
-              "count": 91,
+              "count": 128,
               "examples": [
                 "atis-latch"
               ],
@@ -2703,52 +2866,14 @@
               "varies": false
             }
           ],
-          "records": 91,
+          "records": 128,
           "type": "atis-latch"
         },
         {
           "fields": [
             {
-              "always": true,
-              "count": 81,
-              "examples": [],
-              "path": "aiTitle",
-              "types": [
-                "str"
-              ],
-              "varies": true
-            },
-            {
-              "always": true,
-              "count": 81,
-              "examples": [],
-              "path": "sessionId",
-              "types": [
-                "str"
-              ],
-              "varies": true
-            },
-            {
-              "always": true,
-              "count": 81,
-              "examples": [
-                "ai-title"
-              ],
-              "path": "type",
-              "types": [
-                "str"
-              ],
-              "varies": false
-            }
-          ],
-          "records": 81,
-          "type": "ai-title"
-        },
-        {
-          "fields": [
-            {
               "always": false,
-              "count": 78,
+              "count": 111,
               "examples": [],
               "path": "lastPrompt",
               "types": [
@@ -2758,7 +2883,7 @@
             },
             {
               "always": true,
-              "count": 81,
+              "count": 114,
               "examples": [],
               "path": "leafUuid",
               "types": [
@@ -2768,7 +2893,7 @@
             },
             {
               "always": true,
-              "count": 81,
+              "count": 114,
               "examples": [],
               "path": "sessionId",
               "types": [
@@ -2778,7 +2903,7 @@
             },
             {
               "always": true,
-              "count": 81,
+              "count": 114,
               "examples": [
                 "last-prompt"
               ],
@@ -2789,14 +2914,52 @@
               "varies": false
             }
           ],
-          "records": 81,
+          "records": 114,
           "type": "last-prompt"
         },
         {
           "fields": [
             {
+              "always": true,
+              "count": 109,
+              "examples": [],
+              "path": "aiTitle",
+              "types": [
+                "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": true,
+              "count": 109,
+              "examples": [],
+              "path": "sessionId",
+              "types": [
+                "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": true,
+              "count": 109,
+              "examples": [
+                "ai-title"
+              ],
+              "path": "type",
+              "types": [
+                "str"
+              ],
+              "varies": false
+            }
+          ],
+          "records": 109,
+          "type": "ai-title"
+        },
+        {
+          "fields": [
+            {
               "always": false,
-              "count": 15,
+              "count": 21,
               "examples": [],
               "path": "content",
               "types": [
@@ -2806,7 +2969,7 @@
             },
             {
               "always": true,
-              "count": 30,
+              "count": 42,
               "examples": [
                 "enqueue",
                 "dequeue"
@@ -2819,7 +2982,7 @@
             },
             {
               "always": true,
-              "count": 30,
+              "count": 42,
               "examples": [],
               "path": "sessionId",
               "types": [
@@ -2829,7 +2992,7 @@
             },
             {
               "always": true,
-              "count": 30,
+              "count": 42,
               "examples": [],
               "path": "timestamp",
               "types": [
@@ -2839,7 +3002,7 @@
             },
             {
               "always": true,
-              "count": 30,
+              "count": 42,
               "examples": [
                 "queue-operation"
               ],
@@ -2850,7 +3013,7 @@
               "varies": false
             }
           ],
-          "records": 30,
+          "records": 42,
           "type": "queue-operation"
         },
         {
@@ -3723,20 +3886,20 @@
           "type": "system/turn_duration"
         }
       ],
-      "records": 1426,
+      "records": 2017,
       "versions": [
         "2.1.261"
       ]
     },
     "stream": {
-      "logs": 9,
+      "logs": 11,
       "malformed": 0,
       "record_types": [
         {
           "fields": [
             {
               "always": true,
-              "count": 564,
+              "count": 820,
               "examples": [],
               "path": "estimated_tokens",
               "types": [
@@ -3746,7 +3909,7 @@
             },
             {
               "always": true,
-              "count": 564,
+              "count": 820,
               "examples": [],
               "path": "estimated_tokens_delta",
               "types": [
@@ -3756,7 +3919,7 @@
             },
             {
               "always": true,
-              "count": 564,
+              "count": 820,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -3766,7 +3929,7 @@
             },
             {
               "always": true,
-              "count": 564,
+              "count": 820,
               "examples": [
                 "thinking_tokens"
               ],
@@ -3778,7 +3941,7 @@
             },
             {
               "always": true,
-              "count": 564,
+              "count": 820,
               "examples": [
                 "system"
               ],
@@ -3790,7 +3953,7 @@
             },
             {
               "always": true,
-              "count": 564,
+              "count": 820,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -3799,16 +3962,17 @@
               "varies": true
             }
           ],
-          "records": 564,
+          "records": 820,
           "type": "system/thinking_tokens"
         },
         {
           "fields": [
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [
-                "authentication_failed"
+                "authentication_failed",
+                "rate_limit"
               ],
               "path": "error",
               "types": [
@@ -3818,7 +3982,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [
                 "True"
               ],
@@ -3830,7 +3994,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message",
               "types": [
@@ -3840,7 +4004,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.container",
               "types": [
@@ -3850,7 +4014,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.content",
               "types": [
@@ -3860,7 +4024,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.content[]",
               "types": [
@@ -3870,7 +4034,7 @@
             },
             {
               "always": false,
-              "count": 242,
+              "count": 345,
               "examples": [],
               "path": "message.content[].caller",
               "types": [
@@ -3880,7 +4044,7 @@
             },
             {
               "always": false,
-              "count": 242,
+              "count": 345,
               "examples": [
                 "direct"
               ],
@@ -3892,7 +4056,7 @@
             },
             {
               "always": false,
-              "count": 242,
+              "count": 345,
               "examples": [],
               "path": "message.content[].id",
               "types": [
@@ -3902,7 +4066,7 @@
             },
             {
               "always": false,
-              "count": 242,
+              "count": 345,
               "examples": [],
               "path": "message.content[].input",
               "types": [
@@ -3912,7 +4076,7 @@
             },
             {
               "always": false,
-              "count": 231,
+              "count": 334,
               "examples": [],
               "path": "message.content[].input.command",
               "types": [
@@ -3944,7 +4108,7 @@
             },
             {
               "always": false,
-              "count": 147,
+              "count": 174,
               "examples": [],
               "path": "message.content[].input.description",
               "types": [
@@ -4016,7 +4180,7 @@
             },
             {
               "always": false,
-              "count": 242,
+              "count": 345,
               "examples": [
                 "Bash",
                 "Write",
@@ -4032,7 +4196,7 @@
             },
             {
               "always": false,
-              "count": 134,
+              "count": 193,
               "examples": [],
               "path": "message.content[].signature",
               "types": [
@@ -4042,7 +4206,7 @@
             },
             {
               "always": false,
-              "count": 54,
+              "count": 87,
               "examples": [],
               "path": "message.content[].text",
               "types": [
@@ -4052,7 +4216,7 @@
             },
             {
               "always": false,
-              "count": 134,
+              "count": 193,
               "examples": [],
               "path": "message.content[].thinking",
               "types": [
@@ -4062,7 +4226,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "text",
                 "tool_use",
@@ -4076,7 +4240,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.context_management",
               "types": [
@@ -4086,7 +4250,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.diagnostics",
               "types": [
@@ -4096,7 +4260,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.id",
               "types": [
@@ -4106,7 +4270,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "<synthetic>",
                 "claude-opus-5"
@@ -4119,7 +4283,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "assistant"
               ],
@@ -4131,7 +4295,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.stop_details",
               "types": [
@@ -4141,7 +4305,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "stop_sequence"
               ],
@@ -4154,7 +4318,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.stop_sequence",
               "types": [
@@ -4165,7 +4329,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "message"
               ],
@@ -4177,7 +4341,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage",
               "types": [
@@ -4187,7 +4351,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.cache_creation",
               "types": [
@@ -4197,7 +4361,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.cache_creation.ephemeral_1h_input_tokens",
               "types": [
@@ -4207,7 +4371,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.cache_creation.ephemeral_5m_input_tokens",
               "types": [
@@ -4217,7 +4381,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.cache_creation_input_tokens",
               "types": [
@@ -4227,7 +4391,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.cache_read_input_tokens",
               "types": [
@@ -4237,7 +4401,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "not_available"
               ],
@@ -4250,7 +4414,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.input_tokens",
               "types": [
@@ -4260,7 +4424,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.usage.iterations",
               "types": [
@@ -4270,7 +4434,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "message.usage.output_tokens",
               "types": [
@@ -4280,7 +4444,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.usage.output_tokens_details",
               "types": [
@@ -4290,7 +4454,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.usage.server_tool_use",
               "types": [
@@ -4300,7 +4464,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.usage.server_tool_use.web_fetch_requests",
               "types": [
@@ -4310,7 +4474,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.usage.server_tool_use.web_search_requests",
               "types": [
@@ -4320,7 +4484,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "standard"
               ],
@@ -4333,7 +4497,7 @@
             },
             {
               "always": false,
-              "count": 1,
+              "count": 2,
               "examples": [],
               "path": "message.usage.speed",
               "types": [
@@ -4343,7 +4507,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "parent_tool_use_id",
               "types": [
@@ -4353,7 +4517,7 @@
             },
             {
               "always": false,
-              "count": 429,
+              "count": 624,
               "examples": [],
               "path": "request_id",
               "types": [
@@ -4363,7 +4527,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -4373,7 +4537,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "timestamp",
               "types": [
@@ -4383,7 +4547,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [
                 "assistant"
               ],
@@ -4395,7 +4559,7 @@
             },
             {
               "always": true,
-              "count": 430,
+              "count": 625,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -4404,14 +4568,14 @@
               "varies": true
             }
           ],
-          "records": 430,
+          "records": 625,
           "type": "assistant"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message",
               "types": [
@@ -4421,7 +4585,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content",
               "types": [
@@ -4431,7 +4595,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[]",
               "types": [
@@ -4441,7 +4605,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].content",
               "types": [
@@ -4487,7 +4651,7 @@
             },
             {
               "always": false,
-              "count": 230,
+              "count": 333,
               "examples": [
                 "False",
                 "True"
@@ -4500,7 +4664,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "message.content[].tool_use_id",
               "types": [
@@ -4510,7 +4674,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [
                 "tool_result"
               ],
@@ -4522,7 +4686,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [
                 "user"
               ],
@@ -4534,7 +4698,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "parent_tool_use_id",
               "types": [
@@ -4544,7 +4708,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -4554,7 +4718,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "timestamp",
               "types": [
@@ -4564,7 +4728,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "tool_use_result",
               "types": [
@@ -4605,7 +4769,7 @@
             },
             {
               "always": false,
-              "count": 3,
+              "count": 6,
               "examples": [],
               "path": "tool_use_result.gitOperation",
               "types": [
@@ -4615,7 +4779,7 @@
             },
             {
               "always": false,
-              "count": 3,
+              "count": 6,
               "examples": [],
               "path": "tool_use_result.gitOperation.push",
               "types": [
@@ -4625,7 +4789,7 @@
             },
             {
               "always": false,
-              "count": 3,
+              "count": 6,
               "examples": [
                 "main"
               ],
@@ -4637,7 +4801,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [
                 "False"
               ],
@@ -4649,7 +4813,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [
                 "False"
               ],
@@ -4694,7 +4858,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [
                 "False",
                 "True"
@@ -4723,6 +4887,26 @@
               "types": [
                 "null",
                 "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "tool_use_result.persistedOutputPath",
+              "types": [
+                "str"
+              ],
+              "varies": true
+            },
+            {
+              "always": false,
+              "count": 1,
+              "examples": [],
+              "path": "tool_use_result.persistedOutputSize",
+              "types": [
+                "int"
               ],
               "varies": true
             },
@@ -4843,7 +5027,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [],
               "path": "tool_use_result.stderr",
               "types": [
@@ -4853,7 +5037,7 @@
             },
             {
               "always": false,
-              "count": 226,
+              "count": 327,
               "examples": [],
               "path": "tool_use_result.stdout",
               "types": [
@@ -4977,7 +5161,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [
                 "user"
               ],
@@ -4989,7 +5173,7 @@
             },
             {
               "always": true,
-              "count": 241,
+              "count": 344,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -4998,14 +5182,14 @@
               "varies": true
             }
           ],
-          "records": 241,
+          "records": 344,
           "type": "user"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info",
               "types": [
@@ -5015,7 +5199,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [
                 "False"
               ],
@@ -5026,8 +5210,8 @@
               "varies": false
             },
             {
-              "always": true,
-              "count": 113,
+              "always": false,
+              "count": 145,
               "examples": [
                 "org_level_disabled"
               ],
@@ -5038,8 +5222,8 @@
               "varies": false
             },
             {
-              "always": true,
-              "count": 113,
+              "always": false,
+              "count": 145,
               "examples": [
                 "rejected"
               ],
@@ -5051,7 +5235,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [
                 "five_hour"
               ],
@@ -5063,7 +5247,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.resetsAt",
               "types": [
@@ -5073,9 +5257,11 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [
-                "allowed"
+                "allowed",
+                "allowed_warning",
+                "rejected"
               ],
               "path": "rate_limit_info.status",
               "types": [
@@ -5084,8 +5270,18 @@
               "varies": false
             },
             {
+              "always": false,
+              "count": 10,
+              "examples": [],
+              "path": "rate_limit_info.surpassedThreshold",
+              "types": [
+                "float"
+              ],
+              "varies": true
+            },
+            {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows",
               "types": [
@@ -5095,7 +5291,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows.five_hour",
               "types": [
@@ -5105,7 +5301,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows.five_hour.resetsAt",
               "types": [
@@ -5115,7 +5311,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows.five_hour.utilization",
               "types": [
@@ -5126,7 +5322,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows.seven_day",
               "types": [
@@ -5136,7 +5332,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows.seven_day.resetsAt",
               "types": [
@@ -5146,7 +5342,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "rate_limit_info.unifiedWindows.seven_day.utilization",
               "types": [
@@ -5156,8 +5352,18 @@
               "varies": true
             },
             {
+              "always": false,
+              "count": 10,
+              "examples": [],
+              "path": "rate_limit_info.utilization",
+              "types": [
+                "float"
+              ],
+              "varies": true
+            },
+            {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -5167,7 +5373,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [
                 "rate_limit_event"
               ],
@@ -5179,7 +5385,7 @@
             },
             {
               "always": true,
-              "count": 113,
+              "count": 155,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -5188,14 +5394,14 @@
               "varies": true
             }
           ],
-          "records": 113,
+          "records": 155,
           "type": "rate_limit_event"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "output_file",
               "types": [
@@ -5205,7 +5411,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -5215,7 +5421,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "completed",
                 "failed"
@@ -5228,7 +5434,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "task_notification"
               ],
@@ -5240,7 +5446,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "summary",
               "types": [
@@ -5250,7 +5456,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "task_id",
               "types": [
@@ -5260,7 +5466,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "tool_use_id",
               "types": [
@@ -5270,7 +5476,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "system"
               ],
@@ -5282,7 +5488,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -5291,14 +5497,14 @@
               "varies": true
             }
           ],
-          "records": 23,
+          "records": 33,
           "type": "system/task_notification"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "description",
               "types": [
@@ -5308,7 +5514,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "False"
               ],
@@ -5320,7 +5526,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -5330,7 +5536,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "task_started"
               ],
@@ -5342,7 +5548,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "task_id",
               "types": [
@@ -5352,7 +5558,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "local_bash"
               ],
@@ -5364,7 +5570,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "tool_use_id",
               "types": [
@@ -5374,7 +5580,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [
                 "system"
               ],
@@ -5386,7 +5592,7 @@
             },
             {
               "always": true,
-              "count": 23,
+              "count": 33,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -5395,14 +5601,14 @@
               "varies": true
             }
           ],
-          "records": 23,
+          "records": 33,
           "type": "system/task_started"
         },
         {
           "fields": [
             {
               "always": false,
-              "count": 2,
+              "count": 4,
               "examples": [
                 "main"
               ],
@@ -5414,7 +5620,7 @@
             },
             {
               "always": true,
-              "count": 14,
+              "count": 18,
               "examples": [],
               "path": "cwd",
               "types": [
@@ -5424,7 +5630,7 @@
             },
             {
               "always": true,
-              "count": 14,
+              "count": 18,
               "examples": [
                 "push"
               ],
@@ -5436,7 +5642,7 @@
             },
             {
               "always": true,
-              "count": 14,
+              "count": 18,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -5446,7 +5652,7 @@
             },
             {
               "always": true,
-              "count": 14,
+              "count": 18,
               "examples": [
                 "vcs_state_changed"
               ],
@@ -5458,7 +5664,7 @@
             },
             {
               "always": true,
-              "count": 14,
+              "count": 18,
               "examples": [
                 "system"
               ],
@@ -5470,7 +5676,7 @@
             },
             {
               "always": true,
-              "count": 14,
+              "count": 18,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -5479,14 +5685,14 @@
               "varies": true
             }
           ],
-          "records": 14,
+          "records": 18,
           "type": "system/vcs_state_changed"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "agents",
               "types": [
@@ -5496,7 +5702,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "claude",
                 "Explore",
@@ -5512,7 +5718,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "False"
               ],
@@ -5524,7 +5730,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "none"
               ],
@@ -5536,7 +5742,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "capabilities",
               "types": [
@@ -5546,7 +5752,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "interrupt_receipt_v1",
                 "interrupt_cancel_queued_v1",
@@ -5560,7 +5766,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "2.1.261"
               ],
@@ -5572,7 +5778,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "cwd",
               "types": [
@@ -5582,7 +5788,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "sdk_opt_in_required"
               ],
@@ -5594,7 +5800,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "off"
               ],
@@ -5606,7 +5812,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "mcp_servers",
               "types": [
@@ -5616,7 +5822,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "memory_paths",
               "types": [
@@ -5626,7 +5832,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "memory_paths.auto",
               "types": [
@@ -5636,7 +5842,7 @@
             },
             {
               "always": false,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "messaging_socket_path",
               "types": [
@@ -5646,7 +5852,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "claude-opus-5"
               ],
@@ -5658,7 +5864,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "default"
               ],
@@ -5670,7 +5876,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "bypassPermissions"
               ],
@@ -5682,7 +5888,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "plugins",
               "types": [
@@ -5692,7 +5898,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "False"
               ],
@@ -5704,7 +5910,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -5714,7 +5920,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "skills",
               "types": [
@@ -5724,7 +5930,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "skills[]",
               "types": [
@@ -5734,7 +5940,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "slash_commands",
               "types": [
@@ -5744,7 +5950,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "slash_commands[]",
               "types": [
@@ -5754,7 +5960,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "init"
               ],
@@ -5766,7 +5972,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "terminal_slash_commands",
               "types": [
@@ -5776,7 +5982,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "doctor",
                 "color",
@@ -5790,7 +5996,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "tools",
               "types": [
@@ -5800,7 +6006,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "tools[]",
               "types": [
@@ -5810,7 +6016,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [
                 "system"
               ],
@@ -5822,7 +6028,7 @@
             },
             {
               "always": true,
-              "count": 9,
+              "count": 11,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -5831,24 +6037,25 @@
               "varies": true
             }
           ],
-          "records": 9,
+          "records": 11,
           "type": "system/init"
         },
         {
           "fields": [
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "api_error_status",
               "types": [
+                "int",
                 "null"
               ],
-              "varies": false
+              "varies": true
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "duration_api_ms",
               "types": [
@@ -5858,7 +6065,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "duration_ms",
               "types": [
@@ -5868,7 +6075,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "sdk_opt_in_required"
               ],
@@ -5880,7 +6087,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "off"
               ],
@@ -5892,7 +6099,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 8,
               "examples": [],
               "path": "first_content_frame_ms",
               "types": [
@@ -5902,7 +6109,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "True",
                 "False"
@@ -5915,7 +6122,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "modelUsage",
               "types": [
@@ -5925,7 +6132,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001",
               "types": [
@@ -5935,7 +6142,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens",
               "types": [
@@ -5945,7 +6152,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens",
               "types": [
@@ -5955,7 +6162,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "claude-haiku-4-5"
               ],
@@ -5967,7 +6174,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.contextWindow",
               "types": [
@@ -5977,7 +6184,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "list"
               ],
@@ -5989,7 +6196,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.costUSD",
               "types": [
@@ -5999,7 +6206,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.inputTokens",
               "types": [
@@ -6009,7 +6216,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.maxOutputTokens",
               "types": [
@@ -6019,7 +6226,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.outputTokens",
               "types": [
@@ -6029,7 +6236,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "firstParty"
               ],
@@ -6041,7 +6248,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.thinkingTokens",
               "types": [
@@ -6051,7 +6258,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-haiku-4-5-20251001.webSearchRequests",
               "types": [
@@ -6061,7 +6268,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5",
               "types": [
@@ -6071,7 +6278,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.cacheCreationInputTokens",
               "types": [
@@ -6081,7 +6288,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.cacheReadInputTokens",
               "types": [
@@ -6091,7 +6298,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "claude-opus-5"
               ],
@@ -6103,7 +6310,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.contextWindow",
               "types": [
@@ -6113,7 +6320,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "list"
               ],
@@ -6125,7 +6332,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.costUSD",
               "types": [
@@ -6135,7 +6342,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.inputTokens",
               "types": [
@@ -6145,7 +6352,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.maxOutputTokens",
               "types": [
@@ -6155,7 +6362,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.outputTokens",
               "types": [
@@ -6165,7 +6372,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "firstParty"
               ],
@@ -6177,7 +6384,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.thinkingTokens",
               "types": [
@@ -6187,7 +6394,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "modelUsage.claude-opus-5.webSearchRequests",
               "types": [
@@ -6197,7 +6404,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "num_turns",
               "types": [
@@ -6207,7 +6414,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "permission_denials",
               "types": [
@@ -6217,7 +6424,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "queued_turn_count",
               "types": [
@@ -6227,7 +6434,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "result",
               "types": [
@@ -6237,7 +6444,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "session_id",
               "types": [
@@ -6247,7 +6454,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "stop_sequence",
                 "end_turn"
@@ -6260,7 +6467,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats",
               "types": [
@@ -6270,7 +6477,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.by_type",
               "types": [
@@ -6280,7 +6487,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.completed",
               "types": [
@@ -6290,7 +6497,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.failed",
               "types": [
@@ -6300,7 +6507,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.killed",
               "types": [
@@ -6310,7 +6517,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.killed.parent",
               "types": [
@@ -6320,7 +6527,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.killed.system",
               "types": [
@@ -6330,7 +6537,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.killed.user",
               "types": [
@@ -6340,7 +6547,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.max_depth",
               "types": [
@@ -6350,7 +6557,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.refused",
               "types": [
@@ -6360,7 +6567,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.refused.budget",
               "types": [
@@ -6370,7 +6577,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.refused.concurrency_limit",
               "types": [
@@ -6380,7 +6587,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.refused.depth_limit",
               "types": [
@@ -6390,7 +6597,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.requested",
               "types": [
@@ -6400,7 +6607,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.requested.background",
               "types": [
@@ -6410,7 +6617,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.requested.foreground",
               "types": [
@@ -6420,7 +6627,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.requested.unset",
               "types": [
@@ -6430,7 +6637,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.spawned",
               "types": [
@@ -6440,7 +6647,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.spawned_by_subagents",
               "types": [
@@ -6450,7 +6657,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "subagent_stats.started_in_background",
               "types": [
@@ -6460,7 +6667,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "success"
               ],
@@ -6472,7 +6679,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "api_error",
                 "completed"
@@ -6485,7 +6692,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 8,
               "examples": [],
               "path": "time_to_request_ms",
               "types": [
@@ -6495,7 +6702,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "total_cost_usd",
               "types": [
@@ -6506,7 +6713,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 8,
               "examples": [],
               "path": "ttft_ms",
               "types": [
@@ -6516,7 +6723,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 8,
               "examples": [],
               "path": "ttft_stream_ms",
               "types": [
@@ -6526,7 +6733,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "result"
               ],
@@ -6538,7 +6745,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage",
               "types": [
@@ -6548,7 +6755,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.cache_creation",
               "types": [
@@ -6558,7 +6765,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.cache_creation.ephemeral_1h_input_tokens",
               "types": [
@@ -6568,7 +6775,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.cache_creation.ephemeral_5m_input_tokens",
               "types": [
@@ -6578,7 +6785,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.cache_creation_input_tokens",
               "types": [
@@ -6588,7 +6795,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.cache_read_input_tokens",
               "types": [
@@ -6598,7 +6805,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.inference_geo",
               "types": [
@@ -6608,7 +6815,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.input_tokens",
               "types": [
@@ -6618,7 +6825,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.iterations",
               "types": [
@@ -6628,7 +6835,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[]",
               "types": [
@@ -6638,7 +6845,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].cache_creation",
               "types": [
@@ -6648,7 +6855,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].cache_creation.ephemeral_1h_input_tokens",
               "types": [
@@ -6658,7 +6865,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].cache_creation.ephemeral_5m_input_tokens",
               "types": [
@@ -6668,7 +6875,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].cache_creation_input_tokens",
               "types": [
@@ -6678,7 +6885,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].cache_read_input_tokens",
               "types": [
@@ -6688,7 +6895,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].input_tokens",
               "types": [
@@ -6698,7 +6905,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [],
               "path": "usage.iterations[].output_tokens",
               "types": [
@@ -6708,7 +6915,7 @@
             },
             {
               "always": false,
-              "count": 7,
+              "count": 9,
               "examples": [
                 "message"
               ],
@@ -6720,7 +6927,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.output_tokens",
               "types": [
@@ -6730,7 +6937,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.output_tokens_details",
               "types": [
@@ -6740,7 +6947,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.output_tokens_details.thinking_tokens",
               "types": [
@@ -6750,7 +6957,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.server_tool_use",
               "types": [
@@ -6760,7 +6967,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.server_tool_use.web_fetch_requests",
               "types": [
@@ -6770,7 +6977,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "usage.server_tool_use.web_search_requests",
               "types": [
@@ -6780,7 +6987,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "standard"
               ],
@@ -6792,7 +6999,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [
                 "standard"
               ],
@@ -6804,7 +7011,7 @@
             },
             {
               "always": true,
-              "count": 8,
+              "count": 10,
               "examples": [],
               "path": "uuid",
               "types": [
@@ -6813,11 +7020,11 @@
               "varies": true
             }
           ],
-          "records": 8,
+          "records": 10,
           "type": "result/success"
         }
       ],
-      "records": 1425,
+      "records": 2049,
       "versions": [
         "2.1.261"
       ]
