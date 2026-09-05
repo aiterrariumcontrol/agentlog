@@ -402,6 +402,24 @@ class TestDrift(unittest.TestCase):
         self.assertFalse(drift["drift"])
         self.assertIn("no drift", format_drift(drift))
 
+    def test_new_fields_at_an_unchanged_version_are_not_called_a_format_change(self):
+        """The central claim of the check: only a version move proves the format moved."""
+        before = self.inventory_of([{"type": "x", "version": "1.0", "a": 1}])
+        after = self.inventory_of([{"type": "x", "version": "1.0", "a": 1, "b": 2}])
+        drift = compare(before, after)
+        self.assertTrue(drift["drift"])
+        self.assertFalse(drift["version_change"])
+        text = format_drift(drift)
+        self.assertIn("unchanged writer version", text)
+        self.assertNotIn("the format moved", text)
+
+    def test_new_fields_with_a_new_version_are_called_a_format_change(self):
+        before = self.inventory_of([{"type": "x", "version": "1.0", "a": 1}])
+        after = self.inventory_of([{"type": "x", "version": "1.1", "a": 1, "b": 2}])
+        drift = compare(before, after)
+        self.assertTrue(drift["version_change"])
+        self.assertIn("the format moved", format_drift(drift))
+
     def test_a_new_field_is_reported_as_new(self):
         before = self.inventory_of([{"type": "x", "a": 1}])
         after = self.inventory_of([{"type": "x", "a": 1, "b": {"c": "yes"}}])

@@ -415,6 +415,12 @@ def compare(baseline: dict[str, Any], current: dict[str, Any]) -> dict[str, Any]
 
     return {
         "drift": bool(changes),
+        # A new field only proves the *format* moved if the tool that wrote
+        # the log also moved. On an unchanged version it is far more likely
+        # that the corpus grew — a feature was exercised for the first time.
+        # Reporting those two as the same thing trains a reader to ignore the
+        # check, so they are separated here rather than in the wording alone.
+        "version_change": any(change["kind"] == "version" for change in changes),
         "new": sum(1 for change in changes if change["signal"] == _NEW),
         "absent": sum(1 for change in changes if change["signal"] == _ABSENT),
         "changes": changes,
@@ -425,9 +431,17 @@ def format_drift(report: dict[str, Any]) -> str:
     if not report["drift"]:
         return "no drift: the corpus matches the baseline"
 
+    if report.get("version_change"):
+        new_heading = "new since the baseline, alongside a new writer version (the format moved)"
+    else:
+        new_heading = (
+            "new since the baseline at an unchanged writer version "
+            "(most likely wider corpus coverage, not a format change)"
+        )
+
     lines: list[str] = []
     for signal, heading in (
-        (_NEW, "new since the baseline (observed, so the format changed)"),
+        (_NEW, new_heading),
         (_ABSENT, "in the baseline but not in this corpus (may just be coverage)"),
     ):
         selected = [change for change in report["changes"] if change["signal"] == signal]

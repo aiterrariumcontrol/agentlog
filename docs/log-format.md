@@ -14,15 +14,22 @@ your own logs before relying on any particular field.
 |---|---|
 | Generated | 2026-09-05 |
 | Claude Code version | 2.1.261 |
-| Corpus | 7 non-interactive stream logs + 15 session transcripts from a single machine |
-| Command | `agentlog schema ~/.claude/projects/ path/to/stream-logs/` |
+| Corpus | 9 non-interactive stream logs + 17 session transcripts from a single machine |
+| Command | `python3 scripts/regenerate-inventory.py ~/.claude/projects/ path/to/stream-logs/` |
 | Baseline | [`schema-baseline.json`](schema-baseline.json) — the same inventory as JSON, for `agentlog schema --baseline` |
 
 A single-machine corpus is a real limitation. Fields tied to features this
-machine never used — subagents/sidechains, MCP servers, web search, images —
-are absent here because they never occurred, not because they do not exist.
-Notably **no record in this corpus had `isSidechain: true`**, so nothing below
-describes how subagent output is actually laid out.
+machine never used — subagents/sidechains, MCP servers, images — are absent
+here because they never occurred, not because they do not exist. Notably **no
+record in this corpus had `isSidechain: true`**, so nothing below describes how
+subagent output is actually laid out.
+
+This is not hypothetical. An earlier revision of this document listed web
+search among the never-used features; the first time the corpus machine ran a
+web search, roughly twenty new fields appeared under `toolUseResult` and
+`attachment.entries[]` at an unchanged Claude Code version. Nothing about the
+format had changed — the corpus had simply stopped being blind to that corner
+of it. Expect the same the first time you exercise a feature listed above.
 
 ## How to read it
 
@@ -47,125 +54,41 @@ describes how subagent output is actually laid out.
 ## Inventory
 
 ```
-shape: session  (15 logs, 1,007 records)
+shape: session  (17 logs, 1,426 records)
 
-  attachment  ×306
-    attachment                                            object
-    attachment.addedLines                                 list 24/306
-    attachment.addedLines[]                               str 24/306  (varies)
-    attachment.addedNames                                 list 12/306
-    attachment.addedNames[]                               str 12/306  (varies)
-    attachment.addedTypes                                 list 12/306
-    attachment.addedTypes[]                               str 12/306  (varies)
-    attachment.autoModeConsentFlow                        bool 6/306  False
-    attachment.bashFirst                                  bool 6/306  True
-    attachment.bashFirstSteer                             str 6/306  strict
-    attachment.bypass                                     bool 6/306  True
-    attachment.changes                                    list 27/306
-    attachment.changes[]                                  object 27/306
-    attachment.changes[].field                            str 27/306  workingDirectory
-    attachment.changes[].from                             str 27/306  (varies)
-    attachment.commit                                     str 1/306  (varies)
-    attachment.content                                    str 12/306  (varies)
-    attachment.context                                    object 12/306
-    attachment.context.userEmail                          str 12/306  (varies)
-    attachment.date                                       str 14/306  (varies)
-    attachment.failedMcpServers                           list 12/306
-    attachment.filename                                   str 8/306  (varies)
-    attachment.identity                                   object 12/306
-    attachment.identity.knowledgeCutoff                   str 12/306  May 2026, January 2026
-    attachment.identity.marketingName                     str 12/306  Opus 5, Sonnet 5
-    attachment.identity.modelId                           str 12/306  claude-opus-5, claude-sonnet-5
-    attachment.isInitial                                  bool 24/306  True
-    attachment.names                                      list 12/306
-    attachment.names[]                                    str 12/306  (varies)
-    attachment.needsAuthMcpServers                        list 11/306
-    attachment.pendingMcpServers                          list 12/306
-    attachment.pr                                         str 1/306  (varies)
-    attachment.readdedNames                               list 12/306
-    attachment.removedNames                               list 12/306
-    attachment.removedTypes                               list 12/306
-    attachment.sendUserFileHint                           bool 1/306  True
-    attachment.showConcurrencyNote                        bool 12/306  False
-    attachment.skillCount                                 int 12/306  (varies)
-    attachment.snapshot                                   object 39/306
-    attachment.snapshot.additionalWorkingDirectories      list 39/306
-    attachment.snapshot.isGitRepo                         bool 39/306  False
-    attachment.snapshot.isWorktree                        bool 39/306  False
-    attachment.snapshot.osVersion                         str 39/306  Linux 6.12.107+deb13-amd64
-    attachment.snapshot.platform                          str 39/306  linux
-    attachment.snapshot.scratchpadDirectory               str 1/306  (varies)
-    attachment.snapshot.shell                             str 39/306  unknown, bash
-    attachment.snapshot.workingDirectory                  str 39/306  (varies)
-    attachment.snippet                                    str 8/306  (varies)
-    attachment.steerOnly                                  bool 6/306  True
-    attachment.systemPrompt                               list 8/306
-    attachment.systemPrompt[]                             str 8/306  (varies)
-    attachment.text                                       str 182/306  (varies)
-    attachment.tools                                      list 4/306
-    attachment.tools[]                                    object 4/306
-    attachment.tools[].description                        str 4/306  (varies)
-    attachment.tools[].name                               str 4/306  (varies)
-    attachment.tools[].schema                             object 4/306
-    attachment.tools[].schema.description                 str 4/306  (varies)
-    attachment.tools[].schema.eager_input_streaming       bool 4/306  True
-    attachment.tools[].schema.input_schema                object 4/306
-    attachment.tools[].schema.input_schema.$schema        str 4/306  (varies)
-    attachment.tools[].schema.input_schema.additionalProperties  bool 4/306  False
-    attachment.tools[].schema.input_schema.properties     object 4/306
-    attachment.tools[].schema.input_schema.required       list 4/306
-    attachment.tools[].schema.input_schema.type           str 4/306  object
-    attachment.tools[].schema.name                        str 4/306  (varies)
-    attachment.type                                       str  (varies)
-    attachment.url                                        str 1/306  (varies)
-    attachment.wireHiddenNames                            list 12/306
+  assistant  ×437
+    apiBlockIndex                                         int 435/437  (varies)
     cwd                                                   str  (varies)
+    effort                                                str 435/437  medium, high
     entrypoint                                            str  sdk-cli, cli
+    error                                                 str 2/437  authentication_failed
     gitBranch                                             str  HEAD
-    isSidechain                                           bool  False
-    parentUuid                                            str  (varies)
-    rendered                                              list 298/306
-    rendered[]                                            object 298/306
-    rendered[].content                                    str 298/306  (varies)
-    sessionId                                             str  (varies)
-    session_id                                            str 5/306  (varies)
-    timestamp                                             str  (varies)
-    type                                                  str  attachment
-    userType                                              str  external
-    uuid                                                  str  (varies)
-    version                                               str  2.1.261
-
-  assistant  ×290
-    apiBlockIndex                                         int 288/290  (varies)
-    cwd                                                   str  (varies)
-    effort                                                str 288/290  medium, high
-    entrypoint                                            str  sdk-cli, cli
-    error                                                 str 2/290  authentication_failed
-    gitBranch                                             str  HEAD
-    isApiErrorMessage                                     bool 2/290  True
+    isApiErrorMessage                                     bool 2/437  True
     isSidechain                                           bool  False
     message                                               object
-    message.container                                     null 2/290
+    message.container                                     null 2/437
     message.content                                       list  (varies)
     message.content[]                                     object  (varies)
-    message.content[].caller                              object 158/290
-    message.content[].caller.type                         str 158/290  direct
-    message.content[].id                                  str 158/290  (varies)
-    message.content[].input                               object 158/290  (varies)
-    message.content[].input.command                       str 149/290  (varies)
-    message.content[].input.content                       str 7/290  (varies)
-    message.content[].input.dangerouslyDisableSandbox     bool 1/290  True
-    message.content[].input.description                   str 65/290  (varies)
-    message.content[].input.file_path                     str 9/290  (varies)
-    message.content[].input.new_string                    str 2/290  (varies)
-    message.content[].input.old_string                    str 2/290  (varies)
-    message.content[].input.replace_all                   bool 2/290  False
-    message.content[].name                                str 158/290  Bash, Write, Edit
-    message.content[].signature                           str 87/290  (varies)
-    message.content[].text                                str 45/290  (varies)
-    message.content[].thinking                            str 87/290  (varies)
+    message.content[].caller                              object 241/437
+    message.content[].caller.type                         str 241/437  direct
+    message.content[].id                                  str 241/437  (varies)
+    message.content[].input                               object 241/437  (varies)
+    message.content[].input.command                       str 230/437  (varies)
+    message.content[].input.content                       str 7/437  (varies)
+    message.content[].input.dangerouslyDisableSandbox     bool 1/437  True
+    message.content[].input.description                   str 146/437  (varies)
+    message.content[].input.file_path                     str 9/437  (varies)
+    message.content[].input.max_results                   int 1/437  (varies)
+    message.content[].input.new_string                    str 2/437  (varies)
+    message.content[].input.old_string                    str 2/437  (varies)
+    message.content[].input.query                         str 2/437  (varies)
+    message.content[].input.replace_all                   bool 2/437  False
+    message.content[].name                                str 241/437  Bash, ToolSearch, WebSearch, Write, Edit
+    message.content[].signature                           str 135/437  (varies)
+    message.content[].text                                str 61/437  (varies)
+    message.content[].thinking                            str 135/437  (varies)
     message.content[].type                                str  text, tool_use, thinking
-    message.context_management                            null 2/290
+    message.context_management                            null 2/437
     message.diagnostics                                   null
     message.id                                            str  (varies)
     message.model                                         str  claude-opus-5, <synthetic>, claude-sonnet-5
@@ -183,105 +106,225 @@ shape: session  (15 logs, 1,007 records)
     message.usage.inference_geo                           null|str  not_available
     message.usage.input_tokens                            int  (varies)
     message.usage.iterations                              list|null
-    message.usage.iterations[]                            object 288/290
-    message.usage.iterations[].cache_creation             object 288/290
-    message.usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 288/290  (varies)
-    message.usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 288/290  (varies)
-    message.usage.iterations[].cache_creation_input_tokens  int 288/290  (varies)
-    message.usage.iterations[].cache_read_input_tokens    int 288/290  (varies)
-    message.usage.iterations[].input_tokens               int 288/290  (varies)
-    message.usage.iterations[].output_tokens              int 288/290  (varies)
-    message.usage.iterations[].type                       str 288/290  message
+    message.usage.iterations[]                            object 435/437
+    message.usage.iterations[].cache_creation             object 435/437
+    message.usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 435/437  (varies)
+    message.usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 435/437  (varies)
+    message.usage.iterations[].cache_creation_input_tokens  int 435/437  (varies)
+    message.usage.iterations[].cache_read_input_tokens    int 435/437  (varies)
+    message.usage.iterations[].input_tokens               int 435/437  (varies)
+    message.usage.iterations[].output_tokens              int 435/437  (varies)
+    message.usage.iterations[].type                       str 435/437  message
     message.usage.output_tokens                           int  (varies)
     message.usage.output_tokens_details                   null|object
-    message.usage.output_tokens_details.thinking_tokens   int 288/290  (varies)
+    message.usage.output_tokens_details.thinking_tokens   int 435/437  (varies)
     message.usage.server_tool_use                         object
     message.usage.server_tool_use.web_fetch_requests      int  (varies)
     message.usage.server_tool_use.web_search_requests     int  (varies)
     message.usage.service_tier                            null|str  standard
     message.usage.speed                                   null|str  standard
     parentUuid                                            str  (varies)
-    requestId                                             str 288/290  (varies)
+    requestId                                             str 435/437  (varies)
     sessionId                                             str  (varies)
-    session_id                                            str 2/290  (varies)
+    session_id                                            str 2/437  (varies)
     timestamp                                             str  (varies)
     type                                                  str  assistant
     userType                                              str  external
     uuid                                                  str  (varies)
     version                                               str  2.1.261
 
-  user  ×175
+  attachment  ×424
+    attachment                                            object
+    attachment.addedLines                                 list 28/424
+    attachment.addedLines[]                               str 28/424  (varies)
+    attachment.addedNames                                 list 14/424
+    attachment.addedNames[]                               str 14/424  (varies)
+    attachment.addedTypes                                 list 14/424
+    attachment.addedTypes[]                               str 14/424  (varies)
+    attachment.autoModeConsentFlow                        bool 8/424  False
+    attachment.bashFirst                                  bool 8/424  True
+    attachment.bashFirstSteer                             str 8/424  strict
+    attachment.bypass                                     bool 8/424  True
+    attachment.changes                                    list 39/424
+    attachment.changes[]                                  object 39/424
+    attachment.changes[].field                            str 39/424  workingDirectory
+    attachment.changes[].from                             str 39/424  (varies)
+    attachment.commit                                     str 1/424  (varies)
+    attachment.content                                    str 14/424  (varies)
+    attachment.context                                    object 14/424
+    attachment.context.userEmail                          str 14/424  (varies)
+    attachment.date                                       str 16/424  (varies)
+    attachment.entries                                    list 1/424
+    attachment.entries[]                                  object 1/424
+    attachment.entries[].defer_loading                    bool 1/424  True
+    attachment.entries[].description                      str 1/424  (varies)
+    attachment.entries[].eager_input_streaming            bool 1/424  True
+    attachment.entries[].input_schema                     object 1/424
+    attachment.entries[].input_schema.$schema             str 1/424  (varies)
+    attachment.entries[].input_schema.additionalProperties  bool 1/424  False
+    attachment.entries[].input_schema.properties          object 1/424
+    attachment.entries[].input_schema.properties.allowed_domains  object 1/424
+    attachment.entries[].input_schema.properties.blocked_domains  object 1/424
+    attachment.entries[].input_schema.properties.prompt   object 1/424  (varies)
+    attachment.entries[].input_schema.properties.query    object 1/424
+    attachment.entries[].input_schema.properties.url      object 1/424
+    attachment.entries[].input_schema.required            list 1/424
+    attachment.entries[].input_schema.required[]          str 1/424  url, prompt, query
+    attachment.entries[].input_schema.type                str 1/424  object
+    attachment.entries[].name                             str 1/424  WebFetch, WebSearch
+    attachment.failedMcpServers                           list 14/424
+    attachment.filename                                   str 12/424  (varies)
+    attachment.identity                                   object 14/424
+    attachment.identity.knowledgeCutoff                   str 14/424  May 2026, January 2026
+    attachment.identity.marketingName                     str 14/424  Opus 5, Sonnet 5
+    attachment.identity.modelId                           str 14/424  claude-opus-5, claude-sonnet-5
+    attachment.isInitial                                  bool 28/424  True
+    attachment.names                                      list 14/424
+    attachment.names[]                                    str 14/424  (varies)
+    attachment.needsAuthMcpServers                        list 13/424
+    attachment.pendingMcpServers                          list 14/424
+    attachment.pr                                         str 1/424  (varies)
+    attachment.readdedNames                               list 14/424
+    attachment.removedNames                               list 14/424
+    attachment.removedTypes                               list 14/424
+    attachment.sendUserFileHint                           bool 1/424  True
+    attachment.showConcurrencyNote                        bool 14/424  False
+    attachment.skillCount                                 int 14/424  (varies)
+    attachment.snapshot                                   object 53/424
+    attachment.snapshot.additionalWorkingDirectories      list 53/424
+    attachment.snapshot.isGitRepo                         bool 53/424  False
+    attachment.snapshot.isWorktree                        bool 53/424  False
+    attachment.snapshot.osVersion                         str 53/424  Linux 6.12.107+deb13-amd64
+    attachment.snapshot.platform                          str 53/424  linux
+    attachment.snapshot.scratchpadDirectory               str 1/424  (varies)
+    attachment.snapshot.shell                             str 53/424  unknown, bash
+    attachment.snapshot.workingDirectory                  str 53/424  (varies)
+    attachment.snippet                                    str 12/424  (varies)
+    attachment.steerOnly                                  bool 8/424  True
+    attachment.systemPrompt                               list 8/424
+    attachment.systemPrompt[]                             str 8/424  (varies)
+    attachment.text                                       str 269/424  (varies)
+    attachment.tools                                      list 4/424
+    attachment.tools[]                                    object 4/424
+    attachment.tools[].description                        str 4/424  (varies)
+    attachment.tools[].name                               str 4/424  (varies)
+    attachment.tools[].schema                             object 4/424
+    attachment.tools[].schema.description                 str 4/424  (varies)
+    attachment.tools[].schema.eager_input_streaming       bool 4/424  True
+    attachment.tools[].schema.input_schema                object 4/424
+    attachment.tools[].schema.input_schema.$schema        str 4/424  (varies)
+    attachment.tools[].schema.input_schema.additionalProperties  bool 4/424  False
+    attachment.tools[].schema.input_schema.properties     object 4/424
+    attachment.tools[].schema.input_schema.required       list 4/424
+    attachment.tools[].schema.input_schema.type           str 4/424  object
+    attachment.tools[].schema.name                        str 4/424  (varies)
+    attachment.type                                       str  (varies)
+    attachment.url                                        str 1/424  (varies)
+    attachment.wireHiddenNames                            list 14/424
+    cwd                                                   str  (varies)
+    entrypoint                                            str  sdk-cli, cli
+    gitBranch                                             str  HEAD
+    isSidechain                                           bool  False
+    parentUuid                                            str  (varies)
+    rendered                                              list 415/424
+    rendered[]                                            object 415/424
+    rendered[].content                                    str 415/424  (varies)
+    sessionId                                             str  (varies)
+    session_id                                            str 5/424  (varies)
+    timestamp                                             str  (varies)
+    type                                                  str  attachment
+    userType                                              str  external
+    uuid                                                  str  (varies)
+    version                                               str  2.1.261
+
+  user  ×260
     cwd                                       str  (varies)
     entrypoint                                str  sdk-cli, cli
     gitBranch                                 str  HEAD
-    isMeta                                    bool 1/175  True
+    isMeta                                    bool 1/260  True
     isSidechain                               bool  False
     message                                   object
     message.content                           list|str  (varies)
-    message.content[]                         object 158/175  (varies)
-    message.content[].content                 str 158/175  (varies)
-    message.content[].is_error                bool 149/175  False, True
-    message.content[].tool_use_id             str 158/175  (varies)
-    message.content[].type                    str 158/175  tool_result
+    message.content[]                         object 241/260  (varies)
+    message.content[].content                 list|str 241/260  (varies)
+    message.content[].content[]               object 1/260  (varies)
+    message.content[].content[].tool_name     str 1/260  WebSearch, WebFetch
+    message.content[].content[].type          str 1/260  tool_reference
+    message.content[].is_error                bool 230/260  False, True
+    message.content[].tool_use_id             str 241/260  (varies)
+    message.content[].type                    str 241/260  tool_result
     message.role                              str  user
-    origin                                    object 1/175
-    origin.kind                               str 1/175  human
+    origin                                    object 1/260
+    origin.kind                               str 1/260  human
     parentUuid                                null|str  (varies)
-    permissionMode                            str 14/175  bypassPermissions, default, auto
+    permissionMode                            str 16/260  bypassPermissions, default, auto
     promptId                                  str  (varies)
-    promptSource                              str 14/175  sdk, typed
+    promptSource                              str 16/260  sdk, typed
     sessionId                                 str  (varies)
-    sourceToolAssistantUUID                   str 158/175  (varies)
+    sourceToolAssistantUUID                   str 241/260  (varies)
     timestamp                                 str  (varies)
-    toolUseResult                             object|str 158/175  (varies)
-    toolUseResult.content                     str 7/175  (varies)
-    toolUseResult.filePath                    str 9/175  (varies)
-    toolUseResult.gitOperation                object 3/175
-    toolUseResult.gitOperation.push           object 3/175
-    toolUseResult.gitOperation.push.branch    str 3/175  main
-    toolUseResult.interrupted                 bool 145/175  False
-    toolUseResult.isImage                     bool 145/175  False
-    toolUseResult.newString                   str 2/175  (varies)
-    toolUseResult.noOutputExpected            bool 145/175  False, True
-    toolUseResult.oldString                   str 2/175  (varies)
-    toolUseResult.originalFile                null|str 9/175  (varies)
-    toolUseResult.replaceAll                  bool 2/175  False
-    toolUseResult.returnCodeInterpretation    str 1/175  No matches found
-    toolUseResult.stderr                      str 145/175  (varies)
-    toolUseResult.stdout                      str 145/175  (varies)
-    toolUseResult.structuredPatch             list 9/175
-    toolUseResult.structuredPatch[]           object 2/175
-    toolUseResult.structuredPatch[].lines     list 2/175
-    toolUseResult.structuredPatch[].lines[]   str 2/175  (varies)
-    toolUseResult.structuredPatch[].newLines  int 2/175  (varies)
-    toolUseResult.structuredPatch[].newStart  int 2/175  (varies)
-    toolUseResult.structuredPatch[].oldLines  int 2/175  (varies)
-    toolUseResult.structuredPatch[].oldStart  int 2/175  (varies)
-    toolUseResult.type                        str 7/175  create
-    toolUseResult.userModified                bool 9/175  False
+    toolUseResult                             object|str 241/260  (varies)
+    toolUseResult.content                     str 7/260  (varies)
+    toolUseResult.durationSeconds             float 1/260  (varies)
+    toolUseResult.filePath                    str 9/260  (varies)
+    toolUseResult.gitOperation                object 3/260
+    toolUseResult.gitOperation.push           object 3/260
+    toolUseResult.gitOperation.push.branch    str 3/260  main
+    toolUseResult.interrupted                 bool 226/260  False
+    toolUseResult.isImage                     bool 226/260  False
+    toolUseResult.matches                     list 1/260
+    toolUseResult.matches[]                   str 1/260  WebSearch, WebFetch
+    toolUseResult.newString                   str 2/260  (varies)
+    toolUseResult.noOutputExpected            bool 226/260  False, True
+    toolUseResult.oldString                   str 2/260  (varies)
+    toolUseResult.originalFile                null|str 9/260  (varies)
+    toolUseResult.query                       str 2/260  (varies)
+    toolUseResult.replaceAll                  bool 2/260  False
+    toolUseResult.results                     list 1/260
+    toolUseResult.results[]                   object|str 1/260  (varies)
+    toolUseResult.results[].content           list 1/260  (varies)
+    toolUseResult.results[].content[]         object 1/260  (varies)
+    toolUseResult.results[].content[].title   str 1/260  (varies)
+    toolUseResult.results[].content[].url     str 1/260  (varies)
+    toolUseResult.results[].tool_use_id       str 1/260  (varies)
+    toolUseResult.returnCodeInterpretation    str 2/260  No matches found
+    toolUseResult.searchCount                 int 1/260  (varies)
+    toolUseResult.stderr                      str 226/260  (varies)
+    toolUseResult.stdout                      str 226/260  (varies)
+    toolUseResult.structuredPatch             list 9/260
+    toolUseResult.structuredPatch[]           object 2/260
+    toolUseResult.structuredPatch[].lines     list 2/260
+    toolUseResult.structuredPatch[].lines[]   str 2/260  (varies)
+    toolUseResult.structuredPatch[].newLines  int 2/260  (varies)
+    toolUseResult.structuredPatch[].newStart  int 2/260  (varies)
+    toolUseResult.structuredPatch[].oldLines  int 2/260  (varies)
+    toolUseResult.structuredPatch[].oldStart  int 2/260  (varies)
+    toolUseResult.total_deferred_tools        int 1/260  (varies)
+    toolUseResult.type                        str 7/260  create
+    toolUseResult.userModified                bool 9/260  False
     type                                      str  user
     userType                                  str  external
     uuid                                      str  (varies)
     version                                   str  2.1.261
 
-  atis-latch  ×68
+  atis-latch  ×91
     atis       str  (varies)
     sessionId  str  (varies)
     type       str  atis-latch
 
-  ai-title  ×60
+  ai-title  ×81
     aiTitle    str  (varies)
     sessionId  str  (varies)
     type       str  ai-title
 
-  last-prompt  ×60
-    lastPrompt  str 57/60  (varies)
+  last-prompt  ×81
+    lastPrompt  str 78/81  (varies)
     leafUuid    str  (varies)
     sessionId   str  (varies)
     type        str  last-prompt
 
-  queue-operation  ×26
-    content    str 13/26  (varies)
+  queue-operation  ×30
+    content    str 15/30  (varies)
     operation  str  enqueue, dequeue
     sessionId  str  (varies)
     timestamp  str  (varies)
@@ -378,9 +421,9 @@ shape: session  (15 logs, 1,007 records)
     uuid          str  (varies)
     version       str  2.1.261
 
-shape: stream  (7 logs, 959 records)
+shape: stream  (9 logs, 1,425 records)
 
-  system/thinking_tokens  ×377
+  system/thinking_tokens  ×564
     estimated_tokens        int  (varies)
     estimated_tokens_delta  int  (varies)
     session_id              str  (varies)
@@ -388,29 +431,31 @@ shape: stream  (7 logs, 959 records)
     type                    str  system
     uuid                    str  (varies)
 
-  assistant  ×284
-    error                                                 str 1/284  authentication_failed
-    is_api_error_message                                  bool 1/284  True
+  assistant  ×430
+    error                                                 str 1/430  authentication_failed
+    is_api_error_message                                  bool 1/430  True
     message                                               object
-    message.container                                     null 1/284
+    message.container                                     null 1/430
     message.content                                       list  (varies)
     message.content[]                                     object  (varies)
-    message.content[].caller                              object 159/284
-    message.content[].caller.type                         str 159/284  direct
-    message.content[].id                                  str 159/284  (varies)
-    message.content[].input                               object 159/284  (varies)
-    message.content[].input.command                       str 150/284  (varies)
-    message.content[].input.content                       str 7/284  (varies)
-    message.content[].input.dangerouslyDisableSandbox     bool 1/284  True
-    message.content[].input.description                   str 66/284  (varies)
-    message.content[].input.file_path                     str 9/284  (varies)
-    message.content[].input.new_string                    str 2/284  (varies)
-    message.content[].input.old_string                    str 2/284  (varies)
-    message.content[].input.replace_all                   bool 2/284  False
-    message.content[].name                                str 159/284  Bash, Write, Edit
-    message.content[].signature                           str 87/284  (varies)
-    message.content[].text                                str 38/284  (varies)
-    message.content[].thinking                            str 87/284  (varies)
+    message.content[].caller                              object 242/430
+    message.content[].caller.type                         str 242/430  direct
+    message.content[].id                                  str 242/430  (varies)
+    message.content[].input                               object 242/430  (varies)
+    message.content[].input.command                       str 231/430  (varies)
+    message.content[].input.content                       str 7/430  (varies)
+    message.content[].input.dangerouslyDisableSandbox     bool 1/430  True
+    message.content[].input.description                   str 147/430  (varies)
+    message.content[].input.file_path                     str 9/430  (varies)
+    message.content[].input.max_results                   int 1/430  (varies)
+    message.content[].input.new_string                    str 2/430  (varies)
+    message.content[].input.old_string                    str 2/430  (varies)
+    message.content[].input.query                         str 2/430  (varies)
+    message.content[].input.replace_all                   bool 2/430  False
+    message.content[].name                                str 242/430  Bash, Write, Edit, ToolSearch, WebSearch
+    message.content[].signature                           str 134/430  (varies)
+    message.content[].text                                str 54/430  (varies)
+    message.content[].thinking                            str 134/430  (varies)
     message.content[].type                                str  text, tool_use, thinking
     message.context_management                            null
     message.diagnostics                                   null
@@ -429,27 +474,30 @@ shape: stream  (7 logs, 959 records)
     message.usage.cache_read_input_tokens                 int  (varies)
     message.usage.inference_geo                           null|str  not_available
     message.usage.input_tokens                            int  (varies)
-    message.usage.iterations                              null 1/284
+    message.usage.iterations                              null 1/430
     message.usage.output_tokens                           int  (varies)
-    message.usage.output_tokens_details                   null 1/284
-    message.usage.server_tool_use                         object 1/284
-    message.usage.server_tool_use.web_fetch_requests      int 1/284  (varies)
-    message.usage.server_tool_use.web_search_requests     int 1/284  (varies)
+    message.usage.output_tokens_details                   null 1/430
+    message.usage.server_tool_use                         object 1/430
+    message.usage.server_tool_use.web_fetch_requests      int 1/430  (varies)
+    message.usage.server_tool_use.web_search_requests     int 1/430  (varies)
     message.usage.service_tier                            null|str  standard
-    message.usage.speed                                   null 1/284
+    message.usage.speed                                   null 1/430
     parent_tool_use_id                                    null
-    request_id                                            str 283/284  (varies)
+    request_id                                            str 429/430  (varies)
     session_id                                            str  (varies)
     timestamp                                             str  (varies)
     type                                                  str  assistant
     uuid                                                  str  (varies)
 
-  user  ×158
+  user  ×241
     message                                     object
     message.content                             list  (varies)
     message.content[]                           object  (varies)
-    message.content[].content                   str  (varies)
-    message.content[].is_error                  bool 149/158  False, True
+    message.content[].content                   list|str  (varies)
+    message.content[].content[]                 object 1/241  (varies)
+    message.content[].content[].tool_name       str 1/241  WebSearch, WebFetch
+    message.content[].content[].type            str 1/241  tool_reference
+    message.content[].is_error                  bool 230/241  False, True
     message.content[].tool_use_id               str  (varies)
     message.content[].type                      str  tool_result
     message.role                                str  user
@@ -457,35 +505,48 @@ shape: stream  (7 logs, 959 records)
     session_id                                  str  (varies)
     timestamp                                   str  (varies)
     tool_use_result                             object|str  (varies)
-    tool_use_result.content                     str 7/158  (varies)
-    tool_use_result.filePath                    str 9/158  (varies)
-    tool_use_result.gitOperation                object 3/158
-    tool_use_result.gitOperation.push           object 3/158
-    tool_use_result.gitOperation.push.branch    str 3/158  main
-    tool_use_result.interrupted                 bool 145/158  False
-    tool_use_result.isImage                     bool 145/158  False
-    tool_use_result.newString                   str 2/158  (varies)
-    tool_use_result.noOutputExpected            bool 145/158  False, True
-    tool_use_result.oldString                   str 2/158  (varies)
-    tool_use_result.originalFile                null|str 9/158  (varies)
-    tool_use_result.replaceAll                  bool 2/158  False
-    tool_use_result.returnCodeInterpretation    str 1/158  No matches found
-    tool_use_result.stderr                      str 145/158  (varies)
-    tool_use_result.stdout                      str 145/158  (varies)
-    tool_use_result.structuredPatch             list 9/158
-    tool_use_result.structuredPatch[]           object 2/158
-    tool_use_result.structuredPatch[].lines     list 2/158
-    tool_use_result.structuredPatch[].lines[]   str 2/158  (varies)
-    tool_use_result.structuredPatch[].newLines  int 2/158  (varies)
-    tool_use_result.structuredPatch[].newStart  int 2/158  (varies)
-    tool_use_result.structuredPatch[].oldLines  int 2/158  (varies)
-    tool_use_result.structuredPatch[].oldStart  int 2/158  (varies)
-    tool_use_result.type                        str 7/158  create
-    tool_use_result.userModified                bool 9/158  False
+    tool_use_result.content                     str 7/241  (varies)
+    tool_use_result.durationSeconds             float 1/241  (varies)
+    tool_use_result.filePath                    str 9/241  (varies)
+    tool_use_result.gitOperation                object 3/241
+    tool_use_result.gitOperation.push           object 3/241
+    tool_use_result.gitOperation.push.branch    str 3/241  main
+    tool_use_result.interrupted                 bool 226/241  False
+    tool_use_result.isImage                     bool 226/241  False
+    tool_use_result.matches                     list 1/241
+    tool_use_result.matches[]                   str 1/241  WebSearch, WebFetch
+    tool_use_result.newString                   str 2/241  (varies)
+    tool_use_result.noOutputExpected            bool 226/241  False, True
+    tool_use_result.oldString                   str 2/241  (varies)
+    tool_use_result.originalFile                null|str 9/241  (varies)
+    tool_use_result.query                       str 2/241  (varies)
+    tool_use_result.replaceAll                  bool 2/241  False
+    tool_use_result.results                     list 1/241
+    tool_use_result.results[]                   object|str 1/241  (varies)
+    tool_use_result.results[].content           list 1/241  (varies)
+    tool_use_result.results[].content[]         object 1/241  (varies)
+    tool_use_result.results[].content[].title   str 1/241  (varies)
+    tool_use_result.results[].content[].url     str 1/241  (varies)
+    tool_use_result.results[].tool_use_id       str 1/241  (varies)
+    tool_use_result.returnCodeInterpretation    str 2/241  No matches found
+    tool_use_result.searchCount                 int 1/241  (varies)
+    tool_use_result.stderr                      str 226/241  (varies)
+    tool_use_result.stdout                      str 226/241  (varies)
+    tool_use_result.structuredPatch             list 9/241
+    tool_use_result.structuredPatch[]           object 2/241
+    tool_use_result.structuredPatch[].lines     list 2/241
+    tool_use_result.structuredPatch[].lines[]   str 2/241  (varies)
+    tool_use_result.structuredPatch[].newLines  int 2/241  (varies)
+    tool_use_result.structuredPatch[].newStart  int 2/241  (varies)
+    tool_use_result.structuredPatch[].oldLines  int 2/241  (varies)
+    tool_use_result.structuredPatch[].oldStart  int 2/241  (varies)
+    tool_use_result.total_deferred_tools        int 1/241  (varies)
+    tool_use_result.type                        str 7/241  create
+    tool_use_result.userModified                bool 9/241  False
     type                                        str  user
     uuid                                        str  (varies)
 
-  rate_limit_event  ×81
+  rate_limit_event  ×113
     rate_limit_info                                       object
     rate_limit_info.isUsingOverage                        bool  False
     rate_limit_info.overageDisabledReason                 str  org_level_disabled
@@ -504,7 +565,7 @@ shape: stream  (7 logs, 959 records)
     type                                                  str  rate_limit_event
     uuid                                                  str  (varies)
 
-  system/task_notification  ×18
+  system/task_notification  ×23
     output_file  str  (varies)
     session_id   str  (varies)
     status       str  completed, failed
@@ -515,7 +576,7 @@ shape: stream  (7 logs, 959 records)
     type         str  system
     uuid         str  (varies)
 
-  system/task_started  ×18
+  system/task_started  ×23
     description      str  (varies)
     is_backgrounded  bool  False
     session_id       str  (varies)
@@ -526,8 +587,8 @@ shape: stream  (7 logs, 959 records)
     type             str  system
     uuid             str  (varies)
 
-  system/vcs_state_changed  ×10
-    branch      str 2/10  main
+  system/vcs_state_changed  ×14
+    branch      str 2/14  main
     cwd         str  (varies)
     kind        str  push
     session_id  str  (varies)
@@ -535,7 +596,7 @@ shape: stream  (7 logs, 959 records)
     type        str  system
     uuid        str  (varies)
 
-  system/init  ×7
+  system/init  ×9
     agents                     list
     agents[]                   str  claude, Explore, general-purpose, Plan, statusline-setup
     analytics_disabled         bool  False
@@ -547,9 +608,9 @@ shape: stream  (7 logs, 959 records)
     fast_mode_disabled_reason  str  sdk_opt_in_required
     fast_mode_state            str  off
     mcp_servers                list
-    memory_paths               object 6/7
-    memory_paths.auto          str 6/7  (varies)
-    messaging_socket_path      str 6/7  (varies)
+    memory_paths               object 8/9
+    memory_paths.auto          str 8/9  (varies)
+    messaging_socket_path      str 8/9  (varies)
     model                      str  claude-opus-5
     output_style               str  default
     permissionMode             str  bypassPermissions
@@ -568,41 +629,41 @@ shape: stream  (7 logs, 959 records)
     type                       str  system
     uuid                       str  (varies)
 
-  result/success  ×6
+  result/success  ×8
     api_error_status                                      null
     duration_api_ms                                       int  (varies)
     duration_ms                                           int  (varies)
     fast_mode_disabled_reason                             str  sdk_opt_in_required
     fast_mode_state                                       str  off
-    first_content_frame_ms                                int 5/6  (varies)
+    first_content_frame_ms                                int 7/8  (varies)
     is_error                                              bool  True, False
     modelUsage                                            object
-    modelUsage.claude-haiku-4-5-20251001                  object 5/6
-    modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens  int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens  int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.canonicalModel   str 5/6  claude-haiku-4-5
-    modelUsage.claude-haiku-4-5-20251001.contextWindow    int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.costBasis        str 5/6  list
-    modelUsage.claude-haiku-4-5-20251001.costUSD          float 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.inputTokens      int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.maxOutputTokens  int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.outputTokens     int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.provider         str 5/6  firstParty
-    modelUsage.claude-haiku-4-5-20251001.thinkingTokens   int 5/6  (varies)
-    modelUsage.claude-haiku-4-5-20251001.webSearchRequests  int 5/6  (varies)
-    modelUsage.claude-opus-5                              object 5/6
-    modelUsage.claude-opus-5.cacheCreationInputTokens     int 5/6  (varies)
-    modelUsage.claude-opus-5.cacheReadInputTokens         int 5/6  (varies)
-    modelUsage.claude-opus-5.canonicalModel               str 5/6  claude-opus-5
-    modelUsage.claude-opus-5.contextWindow                int 5/6  (varies)
-    modelUsage.claude-opus-5.costBasis                    str 5/6  list
-    modelUsage.claude-opus-5.costUSD                      float 5/6  (varies)
-    modelUsage.claude-opus-5.inputTokens                  int 5/6  (varies)
-    modelUsage.claude-opus-5.maxOutputTokens              int 5/6  (varies)
-    modelUsage.claude-opus-5.outputTokens                 int 5/6  (varies)
-    modelUsage.claude-opus-5.provider                     str 5/6  firstParty
-    modelUsage.claude-opus-5.thinkingTokens               int 5/6  (varies)
-    modelUsage.claude-opus-5.webSearchRequests            int 5/6  (varies)
+    modelUsage.claude-haiku-4-5-20251001                  object 7/8
+    modelUsage.claude-haiku-4-5-20251001.cacheCreationInputTokens  int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.cacheReadInputTokens  int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.canonicalModel   str 7/8  claude-haiku-4-5
+    modelUsage.claude-haiku-4-5-20251001.contextWindow    int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.costBasis        str 7/8  list
+    modelUsage.claude-haiku-4-5-20251001.costUSD          float 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.inputTokens      int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.maxOutputTokens  int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.outputTokens     int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.provider         str 7/8  firstParty
+    modelUsage.claude-haiku-4-5-20251001.thinkingTokens   int 7/8  (varies)
+    modelUsage.claude-haiku-4-5-20251001.webSearchRequests  int 7/8  (varies)
+    modelUsage.claude-opus-5                              object 7/8
+    modelUsage.claude-opus-5.cacheCreationInputTokens     int 7/8  (varies)
+    modelUsage.claude-opus-5.cacheReadInputTokens         int 7/8  (varies)
+    modelUsage.claude-opus-5.canonicalModel               str 7/8  claude-opus-5
+    modelUsage.claude-opus-5.contextWindow                int 7/8  (varies)
+    modelUsage.claude-opus-5.costBasis                    str 7/8  list
+    modelUsage.claude-opus-5.costUSD                      float 7/8  (varies)
+    modelUsage.claude-opus-5.inputTokens                  int 7/8  (varies)
+    modelUsage.claude-opus-5.maxOutputTokens              int 7/8  (varies)
+    modelUsage.claude-opus-5.outputTokens                 int 7/8  (varies)
+    modelUsage.claude-opus-5.provider                     str 7/8  firstParty
+    modelUsage.claude-opus-5.thinkingTokens               int 7/8  (varies)
+    modelUsage.claude-opus-5.webSearchRequests            int 7/8  (varies)
     num_turns                                             int  (varies)
     permission_denials                                    list
     queued_turn_count                                     int  (varies)
@@ -631,10 +692,10 @@ shape: stream  (7 logs, 959 records)
     subagent_stats.started_in_background                  int  (varies)
     subtype                                               str  success
     terminal_reason                                       str  api_error, completed
-    time_to_request_ms                                    int 5/6  (varies)
+    time_to_request_ms                                    int 7/8  (varies)
     total_cost_usd                                        float|int  (varies)
-    ttft_ms                                               int 5/6  (varies)
-    ttft_stream_ms                                        int 5/6  (varies)
+    ttft_ms                                               int 7/8  (varies)
+    ttft_stream_ms                                        int 7/8  (varies)
     type                                                  str  result
     usage                                                 object
     usage.cache_creation                                  object
@@ -645,15 +706,15 @@ shape: stream  (7 logs, 959 records)
     usage.inference_geo                                   str  (varies)
     usage.input_tokens                                    int  (varies)
     usage.iterations                                      list
-    usage.iterations[]                                    object 5/6
-    usage.iterations[].cache_creation                     object 5/6
-    usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 5/6  (varies)
-    usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 5/6  (varies)
-    usage.iterations[].cache_creation_input_tokens        int 5/6  (varies)
-    usage.iterations[].cache_read_input_tokens            int 5/6  (varies)
-    usage.iterations[].input_tokens                       int 5/6  (varies)
-    usage.iterations[].output_tokens                      int 5/6  (varies)
-    usage.iterations[].type                               str 5/6  message
+    usage.iterations[]                                    object 7/8
+    usage.iterations[].cache_creation                     object 7/8
+    usage.iterations[].cache_creation.ephemeral_1h_input_tokens  int 7/8  (varies)
+    usage.iterations[].cache_creation.ephemeral_5m_input_tokens  int 7/8  (varies)
+    usage.iterations[].cache_creation_input_tokens        int 7/8  (varies)
+    usage.iterations[].cache_read_input_tokens            int 7/8  (varies)
+    usage.iterations[].input_tokens                       int 7/8  (varies)
+    usage.iterations[].output_tokens                      int 7/8  (varies)
+    usage.iterations[].type                               str 7/8  message
     usage.output_tokens                                   int  (varies)
     usage.output_tokens_details                           object
     usage.output_tokens_details.thinking_tokens           int  (varies)
@@ -674,7 +735,7 @@ is still true of yours, compare a fresh corpus against the stored baseline:
 
 ```console
 $ agentlog schema --baseline docs/schema-baseline.json ~/.claude/projects/ logs/
-new since the baseline (observed, so the format changed):
+new since the baseline, alongside a new writer version (the format moved):
   record-type stream  system/compact_boundary
   field       stream assistant  message.container.id  str
   value       stream assistant  message.content[].type  server_tool_use
@@ -686,10 +747,35 @@ in the baseline but not in this corpus (may just be coverage):
 
 It exits 1 when anything differs, so it can gate a scheduled job.
 
-The two halves are not equally strong evidence. Anything under **new** was
-actually observed, so the format really did grow. Anything under **absent**
-may only mean your corpus never exercised that feature — a small corpus is
-missing most of the format, not proof it was removed.
+The two halves are not equally strong evidence, and neither is quite what it
+first looks like.
+
+Anything under **absent** may only mean your corpus never exercised that
+feature — a small corpus is missing most of the format, not proof it was
+removed.
+
+Anything under **new** was genuinely observed, but that alone does not mean the
+format changed. It only proves *your corpus* grew. A field appears the first
+time you use a feature the baseline never covered, and that is much more common
+than a release changing the schema. The heading says which case you are in: new
+fields at an unchanged writer version are almost always wider coverage, while
+new fields accompanied by a `version` line are a real format move. Treat the
+first as "the baseline is out of date" and the second as "my parser might be".
 
 `--baseline` takes any file written by `agentlog schema --json`, so you can
 keep a baseline of your own logs rather than these.
+
+## Regenerating this document
+
+The inventory above, the provenance table and `schema-baseline.json` must move
+together, so one script writes all three:
+
+```console
+$ python3 scripts/regenerate-inventory.py ~/.claude/projects/ logs/
+wrote docs/schema-baseline.json and docs/log-format.md (2.1.261)
+```
+
+`--check` instead reports whether the checked-in files still describe the given
+corpus, and exits 1 if not. It compares structure rather than text: record
+counts change constantly — the log of the very session running the script is
+usually inside the corpus — and that is not staleness.
