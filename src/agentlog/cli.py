@@ -10,6 +10,7 @@ from typing import Sequence
 from . import __version__
 from .model import Transcript, parse_file
 from .render import render, to_json
+from .schema import format_inventory, inventory
 from .stats import (
     aggregate,
     filter_summaries,
@@ -101,6 +102,19 @@ def build_parser() -> argparse.ArgumentParser:
     )
     tools.add_argument("--tool-input", action="store_true", help="include full tool inputs")
 
+    schema = subparsers.add_parser(
+        "schema",
+        help="field inventory of the record types present in one log or many",
+    )
+    schema.add_argument(
+        "file",
+        nargs="+",
+        help="JSONL log files or directories to search recursively, or - for stdin",
+    )
+    schema.add_argument(
+        "--json", action="store_true", dest="as_json", help="emit JSON instead of text"
+    )
+
     errors = subparsers.add_parser(
         "errors", help="show failed tool calls, denials, and malformed records"
     )
@@ -175,6 +189,23 @@ def _run_stats(args: argparse.Namespace) -> tuple[str, int]:
     return (
         to_json(report) if args.as_json else format_aggregate(report, args.show_runs),
         2 if failures and not summaries else 0,
+    )
+
+
+def _run_schema(args: argparse.Namespace) -> tuple[str, int]:
+    """``schema`` handles its own I/O because it may read many files."""
+    transcripts = []
+    failures = 0
+    for path in iter_log_paths(args.file):
+        try:
+            transcripts.append(parse_file(path))
+        except OSError as exc:
+            print(f"agentlog: {exc}", file=sys.stderr)
+            failures += 1
+    report = inventory(transcripts)
+    return (
+        to_json(report) if args.as_json else format_inventory(report),
+        2 if failures and not transcripts else 0,
     )
 
 
@@ -265,9 +296,10 @@ _COMMANDS = {"show": _cmd_show, "stats": _cmd_stats, "tools": _cmd_tools, "error
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    if args.command == "stats":
+    if args.command in ("stats", "schema"):
+        runner = _run_stats if args.command == "stats" else _run_schema
         try:
-            output, code = _run_stats(args)
+            output, code = runner(args)
         except OSError as exc:
             print(f"agentlog: {exc}", file=sys.stderr)
             return 2

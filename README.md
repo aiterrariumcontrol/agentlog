@@ -35,6 +35,7 @@ agentlog show   FILE          # render the conversation
 agentlog stats  FILE|DIR ...  # cost, token, and tool totals, for one log or many
 agentlog tools  FILE          # list tool calls
 agentlog errors FILE          # failed tool calls, permission denials, bad records
+agentlog schema FILE|DIR ...  # which record types and fields a corpus contains
 ```
 
 `FILE` may be `-` to read from stdin. Every command accepts `--json` for
@@ -175,6 +176,40 @@ denials, unparseable records, and the run's own error status:
 ```sh
 agentlog errors --json run.jsonl | jq .
 ```
+
+### `schema`
+
+The log formats are undocumented and drift between releases, so `agentlog`
+can describe them from evidence instead of from assumptions. `schema` walks a
+corpus and reports, per record type, which field paths appeared, how often,
+with which JSON types, and — where a field looks like an enumeration — which
+values:
+
+```console
+$ agentlog schema ~/.claude/projects/ logs/
+shape: stream  (6 logs, 582 records)
+
+  assistant  ×174
+    message.content[].type                str  text, tool_use, thinking
+    message.content[].name                str 97/174  Bash, Write, Edit
+    message.content[].thinking            str 49/174  (varies)
+    message.model                         str  <synthetic>, claude-opus-5
+    message.stop_reason                   null|str  stop_sequence
+    message.usage.cache_read_input_tokens  int  (varies)
+```
+
+A bare type means every record of that type had the field; `49/174` means it
+is optional. `(varies)` means the field held more distinct values than an
+enumeration plausibly would — it is data, not structure.
+
+Example values are for documenting formats, not for reading logs. Free-form
+content, paths, URLs and addresses are never printed, and high-cardinality
+fields collapse to `(varies)`, so `schema` output is safe to paste into a bug
+report. Use `show` when you want the actual contents.
+
+[`docs/log-format.md`](docs/log-format.md) is this output, generated from a
+real corpus and annotated — useful if you are writing your own tooling against
+these files.
 
 ## Robustness
 

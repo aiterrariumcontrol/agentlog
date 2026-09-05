@@ -7,6 +7,7 @@ from pathlib import Path
 from agentlog import parse_file, parse_lines
 from agentlog.cli import main
 from agentlog.render import Style, format_event, render
+from agentlog.schema import format_inventory, inventory
 from agentlog.stats import (
     aggregate,
     filter_summaries,
@@ -303,6 +304,77 @@ class TestAggregate(unittest.TestCase):
         buffer = io.StringIO()
         with redirect_stdout(buffer):
             code = main(["stats", str(FIXTURES / "nope.jsonl"), str(FIXTURES / "nope2.jsonl")])
+        self.assertEqual(code, 2)
+
+
+class TestSchema(unittest.TestCase):
+    def report(self, *paths):
+        return inventory([parse_file(path) for path in paths])
+
+    def group(self, report, shape, name):
+        types = report["shapes"][shape]["record_types"]
+        return next(group for group in types if group["type"] == name)
+
+    def field(self, group, path):
+        return next(item for item in group["fields"] if item["path"] == path)
+
+    def test_shapes_are_reported_separately(self):
+        report = self.report(STREAM, SESSION)
+        self.assertEqual(set(report["shapes"]), {"stream", "session"})
+        self.assertEqual(report["shapes"]["stream"]["logs"], 1)
+
+    def test_subtypes_split_record_types(self):
+        report = self.report(STREAM)
+        names = [group["type"] for group in report["shapes"]["stream"]["record_types"]]
+        self.assertIn("system/init", names)
+
+    def test_optional_fields_are_marked_not_always_present(self):
+        group = self.group(self.report(STREAM), "stream", "assistant")
+        self.assertTrue(self.field(group, "message.role")["always"])
+        self.assertFalse(self.field(group, "message.content[].thinking")["always"])
+
+    def test_list_elements_collapse_to_one_path_with_every_value(self):
+        group = self.group(self.report(STREAM), "stream", "assistant")
+        block_type = self.field(group, "message.content[].type")
+        self.assertEqual(set(block_type["examples"]), {"text", "thinking", "tool_use"})
+        # Counted once per record, not once per content block.
+        self.assertLessEqual(block_type["count"], group["records"])
+
+    def test_free_form_and_identifying_values_are_not_shown(self):
+        group = self.group(self.report(STREAM), "stream", "assistant")
+        self.assertEqual(self.field(group, "message.content[].text")["examples"], [])
+        self.assertEqual(self.field(group, "message.content[].input.file_path")["examples"], [])
+
+    def test_high_cardinality_fields_report_varies_instead_of_values(self):
+        events = [
+            {"type": "x", "colour": f"shade-{n}", "flag": True} for n in range(20)
+        ]
+        report = inventory([parse_lines(json.dumps(event) for event in events)])
+        group = self.group(report, "unknown", "x")
+        colour = self.field(group, "colour")
+        self.assertTrue(colour["varies"])
+        self.assertEqual(colour["examples"], [])
+        self.assertEqual(self.field(group, "flag")["examples"], ["True"])
+
+    def test_malformed_records_are_counted_not_inventoried(self):
+        report = self.report(BROKEN)
+        shape = next(iter(report["shapes"].values()))
+        self.assertGreater(shape["malformed"], 0)
+
+    def test_text_output_names_types_and_counts(self):
+        text = format_inventory(self.report(STREAM))
+        self.assertIn("shape: stream", text)
+        self.assertIn("assistant", text)
+        self.assertIn("(varies)", text)
+
+    def test_cli_schema_accepts_a_directory(self):
+        report = json.loads(run("schema", "--json", str(FIXTURES)))
+        self.assertIn("stream", report["shapes"])
+
+    def test_cli_schema_all_files_unreadable_exits_nonzero(self):
+        buffer = io.StringIO()
+        with redirect_stdout(buffer):
+            code = main(["schema", str(FIXTURES / "nope.jsonl")])
         self.assertEqual(code, 2)
 
 
