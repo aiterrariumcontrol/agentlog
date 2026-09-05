@@ -10,7 +10,14 @@ from typing import Sequence
 from . import __version__
 from .model import Transcript, parse_file
 from .render import render, to_json
-from .stats import format_summary, summarize
+from .stats import (
+    aggregate,
+    filter_summaries,
+    format_aggregate,
+    format_summary,
+    iter_log_paths,
+    summarize,
+)
 
 DESCRIPTION = """\
 Read Claude Code JSONL logs.
@@ -67,8 +74,23 @@ def build_parser() -> argparse.ArgumentParser:
         "--all", dest="include_noise", action="store_true", help="include bookkeeping records"
     )
 
-    stats = subparsers.add_parser("stats", help="cost, token, and tool totals")
-    _add_common(stats)
+    stats = subparsers.add_parser(
+        "stats",
+        help="cost, token, and tool totals for one log or a directory of logs",
+    )
+    stats.add_argument(
+        "file",
+        nargs="+",
+        help="JSONL log files or directories to search recursively, or - for stdin",
+    )
+    stats.add_argument(
+        "--json", action="store_true", dest="as_json", help="emit JSON instead of text"
+    )
+    stats.add_argument("--since", help="only runs at or after this ISO prefix, e.g. 2026-09-04")
+    stats.add_argument("--until", help="only runs at or before this ISO prefix (inclusive)")
+    stats.add_argument(
+        "--no-runs", dest="show_runs", action="store_false", help="totals only, no per-log table"
+    )
 
     tools = subparsers.add_parser("tools", help="list tool calls")
     _add_common(tools)
@@ -129,6 +151,31 @@ def _cmd_show(args: argparse.Namespace, transcript: Transcript) -> str:
 def _cmd_stats(args: argparse.Namespace, transcript: Transcript) -> str:
     summary = summarize(transcript)
     return to_json(summary) if args.as_json else format_summary(summary)
+
+
+def _run_stats(args: argparse.Namespace) -> tuple[str, int]:
+    """``stats`` handles its own I/O because it may read many files."""
+    paths = iter_log_paths(args.file)
+    filtering = args.since is not None or args.until is not None
+    if len(paths) == 1 and not filtering:
+        transcript = parse_file(paths[0])
+        return _cmd_stats(args, transcript), 0
+
+    summaries = []
+    failures = 0
+    for path in paths:
+        try:
+            summaries.append(summarize(parse_file(path)))
+        except OSError as exc:
+            print(f"agentlog: {exc}", file=sys.stderr)
+            failures += 1
+    if filtering:
+        summaries = filter_summaries(summaries, args.since, args.until)
+    report = aggregate(summaries)
+    return (
+        to_json(report) if args.as_json else format_aggregate(report, args.show_runs),
+        2 if failures and not summaries else 0,
+    )
 
 
 def _selected_calls(args: argparse.Namespace, transcript: Transcript):
@@ -204,27 +251,34 @@ def _cmd_errors(args: argparse.Namespace, transcript: Transcript) -> str:
     return "\n\n".join(sections) if sections else "no errors found"
 
 
+def _emit(output: str) -> int:
+    if output:
+        try:
+            print(output)
+        except BrokenPipeError:  # e.g. piping into `head`
+            sys.stdout.close()
+    return 0
+
+
 _COMMANDS = {"show": _cmd_show, "stats": _cmd_stats, "tools": _cmd_tools, "errors": _cmd_errors}
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command == "stats":
+        try:
+            output, code = _run_stats(args)
+        except OSError as exc:
+            print(f"agentlog: {exc}", file=sys.stderr)
+            return 2
+        return _emit(output) or code
     try:
         transcript = parse_file(args.file)
     except OSError as exc:
         print(f"agentlog: {exc}", file=sys.stderr)
         return 2
 
-    output = _COMMANDS[args.command](args, transcript)
-    if output:
-        try:
-            print(output)
-        except BrokenPipeError:  # e.g. piping into `head`
-            try:
-                sys.stdout.close()
-            finally:
-                return 0
-    return 0
+    return _emit(_COMMANDS[args.command](args, transcript))
 
 
 if __name__ == "__main__":  # pragma: no cover

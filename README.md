@@ -31,10 +31,10 @@ PYTHONPATH=src python3 -m agentlog stats run.jsonl
 ## Usage
 
 ```
-agentlog show   FILE   # render the conversation
-agentlog stats  FILE   # cost, token, and tool totals
-agentlog tools  FILE   # list tool calls
-agentlog errors FILE   # failed tool calls, permission denials, bad records
+agentlog show   FILE          # render the conversation
+agentlog stats  FILE|DIR ...  # cost, token, and tool totals, for one log or many
+agentlog tools  FILE          # list tool calls
+agentlog errors FILE          # failed tool calls, permission denials, bad records
 ```
 
 `FILE` may be `-` to read from stdin. Every command accepts `--json` for
@@ -108,11 +108,54 @@ A stream log with no `result` record is reported as `complete: false`: the run
 is either still going or was killed. That is often the single most useful thing
 to know when triaging a batch of logs.
 
+#### Many logs at once
+
+Give `stats` several files, or a directory to walk recursively, and it rolls
+them up instead:
+
+```console
+$ agentlog stats logs/
+when                             cost     tokens  tools  log
+------------------------------------------------------------
+2026-09-04T23:01:56Z (mtime)        -          0      0  logs/20260904T230150Z/stream.jsonl
+2026-09-04T23:10:01.418Z      $0.1755     30,382      1  logs/20260904T230940Z/stream.jsonl
+2026-09-04T23:32:37.816Z      $2.7250  1,977,611     38  logs/20260904T233225Z/stream.jsonl (1 tool err)
+2026-09-05T02:43:32.958Z            -    854,634     17  logs/20260905T024310Z/stream.jsonl !partial
+
+           logs  4
+          range  2026-09-04T23:01:56Z .. 2026-09-05T02:43:32.958Z
+           cost  $2.900500  (from 2/4 logs; rest report no cost)
+      wall time  604.3s
+     tool calls  56
+    tool errors  1
+incomplete logs  1
+
+by day
+  2026-09-04  3 runs  $2.9005  2,007,993 tokens  39 tool calls  (1 without cost)
+  2026-09-05  1 run   $0.0000    854,634 tokens  17 tool calls  (1 without cost)
+```
+
+The same honesty rule applies to the total: runs that reported no cost
+contribute nothing to it, and the report says how many those were, so the
+number is a floor rather than an estimate. A log whose records carry no
+timestamp — an empty or killed-at-startup run — is placed by file mtime, and
+marked `(mtime)` so you know the time did not come from the log.
+
+Restrict the window with any ISO prefix; both ends are inclusive:
+
+```sh
+agentlog stats logs/ --since 2026-09-04 --until 2026-09-04  # one day
+agentlog stats logs/ --since 2026-09                        # one month
+agentlog stats logs/ --no-runs                              # totals only
+agentlog stats logs/ --json | jq '.by_day'
+```
+
+Undated logs are dropped when a bound is given, since they cannot be shown to
+fall inside it.
+
 ```sh
 # which runs in this directory died?
-for f in logs/*/stream.jsonl; do
-  agentlog stats --json "$f" | jq -r --arg f "$f" 'select(.complete|not) | $f'
-done
+agentlog stats --json logs/ | jq -r '.runs[] | select(.complete == false) | .path'
 ```
 
 ### `tools`
