@@ -83,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
 
     doc_text = DOC.read_text()
     doc_text = replace_inventory(doc_text, block)
-    doc_text = replace_row(doc_text, "Generated", dt.date.today().isoformat())
+    doc_text = replace_row(doc_text, "Generated", dt.datetime.now(dt.timezone.utc).date().isoformat())
     doc_text = replace_row(doc_text, "Claude Code version", versions)
     doc_text = replace_row(doc_text, "Corpus", _describe(report))
 
